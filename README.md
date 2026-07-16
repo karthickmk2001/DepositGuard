@@ -2,7 +2,7 @@
 
 **Decentralised rent deposit escrow for Ireland — built on Solana.**
 
-Live demo: **[depositguard.vercel.app](https://depositguard.vercel.app)** (Solana Devnet)
+Live demo: **[depositguard-app.vercel.app](https://depositguard-app.vercel.app)** (Solana Devnet)
 
 ---
 
