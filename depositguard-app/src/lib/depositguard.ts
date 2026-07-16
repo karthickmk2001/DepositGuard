@@ -1,5 +1,5 @@
 /**
- * Solana / Anchor helpers for DepositGuard.
+ * On-chain / Anchor helpers for DepositGuard.
  *
  * Provides typed wrappers around the on-chain escrow program so every page
  * can call a single function and get back a confirmed transaction signature.
@@ -8,7 +8,7 @@
 import {
   Connection,
   PublicKey,
-  LAMPORTS_PER_SOL,
+  LAMPORTS_PER_SOL as LAMPORTS_PER_DEPG,
   clusterApiUrl,
   SystemProgram,
   Transaction,
@@ -19,8 +19,8 @@ import { BN } from "@coral-xyz/anchor";
 
 // ── Constants ────────────────────────────────────────────────────────────────
 
-export const SOLANA_NETWORK = "devnet";
-export const connection = new Connection(clusterApiUrl(SOLANA_NETWORK), "confirmed");
+export const DEPOSITGUARD_NETWORK = "devnet";
+export const connection = new Connection(clusterApiUrl(DEPOSITGUARD_NETWORK), "confirmed");
 
 /**
  * Program ID — replace with your deployed program address.
@@ -36,12 +36,12 @@ export const PROGRAM_ID = new PublicKey(
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
 
-export function solToLamports(sol: number): number {
-  return Math.round(sol * LAMPORTS_PER_SOL);
+export function depgToLamports(depg: number): number {
+  return Math.round(depg * LAMPORTS_PER_DEPG);
 }
 
-export function lamportsToSol(lamports: number): number {
-  return lamports / LAMPORTS_PER_SOL;
+export function lamportsToDepg(lamports: number): number {
+  return lamports / LAMPORTS_PER_DEPG;
 }
 
 export function shortKey(pubkey: string, chars = 4): string {
@@ -58,7 +58,7 @@ export function getEscrowPDA(tenancyId: string): [PublicKey, number] {
 
 export async function getBalance(address: string): Promise<number> {
   const lamports = await connection.getBalance(new PublicKey(address));
-  return lamportsToSol(lamports);
+  return lamportsToDepg(lamports);
 }
 
 // ── Anchor-style instruction builders ────────────────────────────────────────
@@ -95,7 +95,7 @@ function encodeU64(n: BN): Buffer {
 export async function createTenancyOnChain(
   wallet: WalletContextState,
   tenancyId: string,
-  depositSol: number,
+  depositDepg: number,
   moveInHash: string
 ): Promise<string> {
   if (!wallet.publicKey || !wallet.signTransaction) {
@@ -103,7 +103,7 @@ export async function createTenancyOnChain(
   }
 
   const [escrowPDA] = getEscrowPDA(tenancyId);
-  const depositLamports = new BN(solToLamports(depositSol));
+  const depositLamports = new BN(depgToLamports(depositDepg));
 
   const disc = await instructionDiscriminator("create_tenancy");
   const data = Buffer.concat([
@@ -127,7 +127,7 @@ export async function createTenancyOnChain(
 }
 
 /**
- * Tenant deposits SOL into the escrow PDA.
+ * Tenant deposits DEPG into the escrow PDA.
  */
 export async function depositToEscrow(
   wallet: WalletContextState,
@@ -161,14 +161,14 @@ export async function depositToEscrow(
 export async function proposeReleaseOnChain(
   wallet: WalletContextState,
   tenancyId: string,
-  landlordSol: number
+  landlordDepg: number
 ): Promise<string> {
   if (!wallet.publicKey || !wallet.signTransaction) {
     throw new Error("Wallet not connected");
   }
 
   const [escrowPDA] = getEscrowPDA(tenancyId);
-  const landlordLamports = new BN(solToLamports(landlordSol));
+  const landlordLamports = new BN(depgToLamports(landlordDepg));
 
   const disc = await instructionDiscriminator("propose_release");
   const data = Buffer.concat([disc, encodeU64(landlordLamports)]);
@@ -251,14 +251,14 @@ export async function arbitrateOnChain(
   tenancyId: string,
   landlordPubkey: string,
   tenantPubkey: string,
-  landlordSol: number
+  landlordDepg: number
 ): Promise<string> {
   if (!wallet.publicKey || !wallet.signTransaction) {
     throw new Error("Wallet not connected");
   }
 
   const [escrowPDA] = getEscrowPDA(tenancyId);
-  const landlordLamports = new BN(solToLamports(landlordSol));
+  const landlordLamports = new BN(depgToLamports(landlordDepg));
 
   const disc = await instructionDiscriminator("arbitrate");
   const data = Buffer.concat([disc, encodeU64(landlordLamports)]);

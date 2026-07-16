@@ -6,7 +6,7 @@ import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 import { useParams, useRouter } from "next/navigation";
 import { getTenancy, updateTenancy } from "@/lib/supabase";
 import { Tenancy } from "@/types/tenancy";
-import { depositToEscrow, getEscrowPDA } from "@/lib/solana";
+import { depositToEscrow, getEscrowPDA } from "@/lib/depositguard";
 
 export default function DepositPage() {
   const { id } = useParams<{ id: string }>();
@@ -35,7 +35,7 @@ export default function DepositPage() {
     setError("");
 
     try {
-      // Transfer SOL from tenant wallet → escrow PDA on Solana
+      // Transfer DEPG from tenant wallet → escrow PDA on DepositGuard
       let txSig = "";
       try {
         txSig = await depositToEscrow(wallet, tenancy.id);
@@ -118,7 +118,7 @@ export default function DepositPage() {
         </div>
         <div className="px-6 py-4 flex justify-between items-center">
           <span className="text-gray-400 text-sm">Deposit amount</span>
-          <span className="font-bold text-violet-400 text-lg">{tenancy.deposit_amount} SOL</span>
+          <span className="font-bold text-violet-400 text-lg">{tenancy.deposit_amount} DEPG</span>
         </div>
         <div className="px-6 py-4 flex justify-between items-center">
           <span className="text-gray-400 text-sm">Inspection tier</span>
@@ -231,7 +231,7 @@ export default function DepositPage() {
                 className="mt-3 bg-green-700 hover:bg-green-600 text-white font-medium px-6 py-2.5 rounded-xl transition-colors text-sm flex items-center gap-2"
               >
                 {paying && <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />}
-                Claim Full Deposit ({tenancy.deposit_amount} SOL)
+                Claim Full Deposit ({tenancy.deposit_amount} DEPG)
               </button>
             )}
           </div>
@@ -268,7 +268,7 @@ export default function DepositPage() {
                 Processing…
               </>
             ) : (
-              `Pay ${tenancy.deposit_amount} SOL into Escrow`
+              `Pay ${tenancy.deposit_amount} DEPG into Escrow`
             )}
           </button>
           <p className="text-xs text-gray-500 text-center mt-3">

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import "./globals.css";
-import { SolanaProviders } from "./providers";
+import { DepositGuardProviders } from "./providers";
 import Navbar from "@/components/Navbar";
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-geist" });
@@ -16,13 +16,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${geist.variable} h-full`}>
       <body className="min-h-full flex flex-col bg-gray-950 text-gray-100 antialiased">
-        <SolanaProviders>
+        <DepositGuardProviders>
           <Navbar />
           <main className="flex-1">{children}</main>
           <footer className="border-t border-gray-800/60 py-5 text-center text-xs text-gray-600">
             DepositGuard
           </footer>
-        </SolanaProviders>
+        </DepositGuardProviders>
       </body>
     </html>
   );

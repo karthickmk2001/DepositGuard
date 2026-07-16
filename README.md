@@ -35,7 +35,7 @@ DepositGuard locks rent deposits in a **Program Derived Address (PDA)**. Neither
 ```
 .
 ├── depositguard-app/        # Next.js 16 frontend (deployed on Vercel)
-├── depositguard-program/    # Solana program (Anchor / Rust)
+├── depositguard-program/    # DepositGuard program (Anchor / Rust)
 └── DepositGuard PRD - AI-ML Addendum.md
 ```
 
@@ -43,7 +43,7 @@ DepositGuard locks rent deposits in a **Program Derived Address (PDA)**. Neither
 
 - **Frontend:** Next.js 16, React 19, Tailwind v4, TypeScript
 - **Wallets:** `@solana/wallet-adapter-react` (Phantom, Solflare, etc.)
-- **On-chain:** Solana program (Rust), Anchor framework
+- **On-chain:** DepositGuard program (Rust), Anchor framework
 - **Off-chain storage:** Supabase (photo blobs, tenancy metadata)
 - **Hosting:** Vercel
 

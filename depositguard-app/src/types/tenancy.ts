@@ -17,7 +17,7 @@ export interface Tenancy {
   tenant?: string;
   inspector?: string;
   property_address: string;
-  deposit_amount: number; // in SOL
+  deposit_amount: number; // in DEPG
   lease_start: string;    // ISO date
   lease_end: string;
   move_in_hash?: string;

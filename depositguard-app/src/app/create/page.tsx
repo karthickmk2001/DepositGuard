@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import WalletGuard from "@/components/WalletGuard";
 import { hashFile, combinedHash } from "@/lib/hash";
 import { createTenancy, uploadPhoto } from "@/lib/supabase";
-import { createTenancyOnChain } from "@/lib/solana";
+import { createTenancyOnChain } from "@/lib/depositguard";
 
 const ROOMS = ["Kitchen", "Bathroom", "Bedroom 1", "Bedroom 2", "Living Room", "Hallway", "Exterior"];
 
@@ -79,7 +79,7 @@ export default function CreatePage() {
         created_at: new Date().toISOString(),
       });
 
-      // Create escrow PDA on Solana — stores deposit amount and move-in hash on-chain
+      // Create escrow PDA on DepositGuard — stores deposit amount and move-in hash on-chain
       try {
         const txSig = await createTenancyOnChain(
           wallet,
@@ -168,7 +168,7 @@ export default function CreatePage() {
 
           <div>
             <label className="block text-sm font-medium text-gray-300 mb-1.5">
-              Deposit amount (SOL)
+              Deposit amount (DEPG)
             </label>
             <div className="relative">
               <input
@@ -180,7 +180,7 @@ export default function CreatePage() {
                 step="0.01"
                 className="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-gray-100 placeholder-gray-600 focus:outline-none focus:border-violet-500 transition-colors"
               />
-              <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 text-sm">SOL</span>
+              <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 text-sm">DEPG</span>
             </div>
             <p className="text-xs text-gray-500 mt-1">≈ €{deposit ? (parseFloat(deposit) * 140).toFixed(0) : "0"} EUR at current rates</p>
           </div>
@@ -298,7 +298,7 @@ export default function CreatePage() {
                 <span className="text-xs bg-violet-500/20 text-violet-400 px-2 py-0.5 rounded-full">Recommended</span>
               </div>
               <div className="text-sm text-gray-400">
-                Independent inspector visits, signs report on-chain. Strongest evidence if disputed. Fee: €50–100 paid in SOL.
+                Independent inspector visits, signs report on-chain. Strongest evidence if disputed. Fee: €50–100 paid in DEPG.
               </div>
             </button>
 
@@ -343,7 +343,7 @@ export default function CreatePage() {
           <div className="bg-gray-900 border border-gray-800 rounded-xl divide-y divide-gray-800">
             {[
               { label: "Property", value: address },
-              { label: "Deposit amount", value: `${deposit} SOL` },
+              { label: "Deposit amount", value: `${deposit} DEPG` },
               { label: "Lease period", value: `${leaseStart} → ${leaseEnd}` },
               { label: "Photos", value: photos.length > 0 ? `${photos.length} photo(s) hashed` : "None uploaded" },
               { label: "Inspection tier", value: wantsInspector ? "Inspector Verified" : "Standard (mutual sign-off)" },

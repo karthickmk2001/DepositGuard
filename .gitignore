@@ -20,7 +20,7 @@ npm-debug.log*
 .idea/
 **/.claude/
 
-# Solana / Anchor
+# DepositGuard / Anchor
 target/
 
 # TypeScript

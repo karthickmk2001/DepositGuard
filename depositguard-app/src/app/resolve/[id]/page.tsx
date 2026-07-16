@@ -12,7 +12,7 @@ import {
   approveReleaseOnChain,
   disputeOnChain,
   getEscrowPDA,
-} from "@/lib/solana";
+} from "@/lib/depositguard";
 
 export default function ResolvePage() {
   const { id } = useParams<{ id: string }>();
@@ -194,7 +194,7 @@ export default function ResolvePage() {
       <div className="mb-8">
         <div className="text-sm text-violet-400 font-medium mb-1">Move-out & Deposit Release</div>
         <h1 className="text-3xl font-bold mb-1">{tenancy.property_address}</h1>
-        <p className="text-gray-400 text-sm">Status: {tenancy.status} · Deposit: {tenancy.deposit_amount} SOL</p>
+        <p className="text-gray-400 text-sm">Status: {tenancy.status} · Deposit: {tenancy.deposit_amount} DEPG</p>
       </div>
 
       {error && (
@@ -302,7 +302,7 @@ export default function ResolvePage() {
         <div className="space-y-5">
           <h2 className="font-semibold text-lg">Propose deposit split</h2>
           <p className="text-gray-400 text-sm">
-            Upload move-out photos and enter how much of the {tenancy.deposit_amount} SOL deposit each party should receive.
+            Upload move-out photos and enter how much of the {tenancy.deposit_amount} DEPG deposit each party should receive.
           </p>
 
           {/* Move-out photo upload */}
@@ -348,7 +348,7 @@ export default function ResolvePage() {
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-300 mb-1.5">
-                Landlord receives (SOL)
+                Landlord receives (DEPG)
               </label>
               <input
                 type="number"
@@ -362,7 +362,7 @@ export default function ResolvePage() {
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-300 mb-1.5">
-                Tenant receives (SOL)
+                Tenant receives (DEPG)
               </label>
               <input
                 type="number"
@@ -375,7 +375,7 @@ export default function ResolvePage() {
 
           <div className="bg-gray-900 border border-gray-800 rounded-xl px-5 py-3 flex justify-between items-center">
             <span className="text-gray-400 text-sm">Total deposit</span>
-            <span className="font-bold text-violet-400">{tenancy.deposit_amount} SOL</span>
+            <span className="font-bold text-violet-400">{tenancy.deposit_amount} DEPG</span>
           </div>
 
           <button
@@ -397,11 +397,11 @@ export default function ResolvePage() {
           <div className="bg-gray-900 border border-gray-800 rounded-xl divide-y divide-gray-800">
             <div className="px-5 py-4 flex justify-between">
               <span className="text-gray-400 text-sm">Landlord keeps</span>
-              <span className="font-bold text-orange-400">{tenancy.proposed_landlord_amt} SOL</span>
+              <span className="font-bold text-orange-400">{tenancy.proposed_landlord_amt} DEPG</span>
             </div>
             <div className="px-5 py-4 flex justify-between">
               <span className="text-gray-400 text-sm">You receive</span>
-              <span className="font-bold text-green-400">{tenancy.proposed_tenant_amt} SOL</span>
+              <span className="font-bold text-green-400">{tenancy.proposed_tenant_amt} DEPG</span>
             </div>
           </div>
 
@@ -434,7 +434,7 @@ export default function ResolvePage() {
         <div className="bg-yellow-900/20 border border-yellow-700/40 rounded-xl px-5 py-6 text-center">
           <div className="text-yellow-400 font-semibold">Split proposed — waiting for tenant</div>
           <div className="text-sm text-gray-400 mt-2">
-            You proposed {tenancy.proposed_landlord_amt} SOL to yourself and {tenancy.proposed_tenant_amt} SOL to the tenant.
+            You proposed {tenancy.proposed_landlord_amt} DEPG to yourself and {tenancy.proposed_tenant_amt} DEPG to the tenant.
             They will review and either agree or dispute.
           </div>
         </div>

@@ -31,7 +31,7 @@ pub mod depositguard {
         Ok(())
     }
 
-    /// Tenant sends SOL into the PDA escrow. Marks tenancy Active.
+    /// Tenant sends DEPG into the PDA escrow. Marks tenancy Active.
     pub fn deposit(ctx: Context<Deposit>) -> Result<()> {
         // Validate first — no &mut binding so we don't conflict with to_account_info()
         require!(
@@ -46,7 +46,7 @@ pub mod depositguard {
         let amount     = ctx.accounts.escrow.deposit_lamports;
         let tenant_key = ctx.accounts.tenant.key();
 
-        // CPI: transfer SOL from tenant wallet to escrow PDA
+        // CPI: transfer DEPG from tenant wallet to escrow PDA
         system_program::transfer(
             CpiContext::new(
                 ctx.accounts.system_program.to_account_info(),

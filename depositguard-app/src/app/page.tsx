@@ -145,7 +145,7 @@ export default function Home() {
         <div className="max-w-xl mx-auto text-center">
           <h2 className="text-2xl font-bold mb-3">Try it on Devnet</h2>
           <p className="text-gray-400 text-sm mb-7">
-            Connect Phantom, switch to Devnet, and run through the full flow. No real SOL needed.
+            Connect Phantom, switch to Devnet, and run through the full flow. No real money needed.
           </p>
           <Link
             href="/create"

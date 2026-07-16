@@ -6,7 +6,7 @@ import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 import { useParams, useRouter } from "next/navigation";
 import { getTenancy, updateTenancy } from "@/lib/supabase";
 import { Tenancy } from "@/types/tenancy";
-import { arbitrateOnChain, getEscrowPDA } from "@/lib/solana";
+import { arbitrateOnChain, getEscrowPDA } from "@/lib/depositguard";
 
 export default function ArbitratePage() {
   const { id } = useParams<{ id: string }>();
@@ -149,11 +149,11 @@ export default function ArbitratePage() {
         </div>
         <div className="px-5 py-3.5 flex justify-between">
           <span className="text-gray-400 text-sm">Deposit in escrow</span>
-          <span className="font-bold text-violet-400">{tenancy.deposit_amount} SOL</span>
+          <span className="font-bold text-violet-400">{tenancy.deposit_amount} DEPG</span>
         </div>
         <div className="px-5 py-3.5 flex justify-between">
           <span className="text-gray-400 text-sm">Landlord originally proposed</span>
-          <span className="text-orange-400">{tenancy.proposed_landlord_amt ?? "—"} SOL to themselves</span>
+          <span className="text-orange-400">{tenancy.proposed_landlord_amt ?? "—"} DEPG to themselves</span>
         </div>
         <div className="px-5 py-3.5 flex justify-between">
           <span className="text-gray-400 text-sm">Inspection tier</span>
@@ -260,7 +260,7 @@ export default function ArbitratePage() {
 
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-1.5">Landlord receives (SOL)</label>
+                <label className="block text-sm font-medium text-gray-300 mb-1.5">Landlord receives (DEPG)</label>
                 <input
                   type="number"
                   value={arbLandlordAmount}
@@ -272,7 +272,7 @@ export default function ArbitratePage() {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-1.5">Tenant receives (SOL)</label>
+                <label className="block text-sm font-medium text-gray-300 mb-1.5">Tenant receives (DEPG)</label>
                 <input
                   type="number"
                   value={arbTenantAmount}
@@ -304,7 +304,7 @@ export default function ArbitratePage() {
               </div>
               <div className="flex justify-between text-xs text-gray-500 mt-2">
                 <span>Landlord</span>
-                <span>Total: {tenancy.deposit_amount} SOL</span>
+                <span>Total: {tenancy.deposit_amount} DEPG</span>
                 <span>Tenant</span>
               </div>
             </div>
@@ -316,7 +316,7 @@ export default function ArbitratePage() {
               <textarea
                 value={reasoning}
                 onChange={(e) => setReasoning(e.target.value)}
-                placeholder="e.g. Inspector move-in report shows carpet was already stained. Landlord's claim for full cleaning costs is not supported by evidence. Awarding 0.3 SOL to landlord for documented wall damage."
+                placeholder="e.g. Inspector move-in report shows carpet was already stained. Landlord's claim for full cleaning costs is not supported by evidence. Awarding 0.3 DEPG to landlord for documented wall damage."
                 rows={4}
                 className="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-gray-100 placeholder-gray-600 focus:outline-none focus:border-violet-500 transition-colors text-sm resize-none"
               />
@@ -339,7 +339,7 @@ export default function ArbitratePage() {
           <div className="text-green-400 text-2xl mb-2">✓</div>
           <div className="font-semibold text-green-400">Arbitration complete — escrow released</div>
           <div className="text-sm text-gray-400 mt-1">
-            Landlord received {tenancy.proposed_landlord_amt} SOL · Tenant received {tenancy.proposed_tenant_amt} SOL
+            Landlord received {tenancy.proposed_landlord_amt} DEPG · Tenant received {tenancy.proposed_tenant_amt} DEPG
           </div>
         </div>
       )}

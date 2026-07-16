@@ -4,7 +4,7 @@
 **Date:** 2026-04-17
 **Status:** Optional feature track — can be toggled on without blocking the core P0 escrow flow.
 
-This addendum supplements the base DepositGuard PRD. The core product (Solana escrow + mutual sign-off + optional inspector + arbitrator fallback) is unchanged. This document describes an **AI/ML layer** that can be added to differentiate the demo and strengthen the hackathon narrative, without rewriting any on-chain logic.
+This addendum supplements the base DepositGuard PRD. The core product (DepositGuard escrow + mutual sign-off + optional inspector + arbitrator fallback) is unchanged. This document describes an **AI/ML layer** that can be added to differentiate the demo and strengthen the hackathon narrative, without rewriting any on-chain logic.
 
 ---
 
@@ -13,9 +13,9 @@ This addendum supplements the base DepositGuard PRD. The core product (Solana es
 The base product solves the *trust* problem (escrow + evidence hashing). AI/ML additionally solves the *judgement* problem — "is this damage real, is it fair wear-and-tear, and what is a fair split?" — which is exactly where landlord/tenant disputes actually break down in practice.
 
 For the Colosseum Frontier / Superteam Ireland submission, an AI layer:
-- Gives the demo video a visibly differentiating moment beyond "we have escrow on Solana".
+- Gives the demo video a visibly differentiating moment beyond "we have escrow on DepositGuard".
 - Maps directly onto Ireland's RTB dispute criteria (wear-and-tear vs damage, depreciation, documented evidence).
-- Is feasible inside the remaining ~3 weeks because it is entirely additive — it runs in API routes and writes back to Supabase/Solana only as advisory output.
+- Is feasible inside the remaining ~3 weeks because it is entirely additive — it runs in API routes and writes back to Supabase/DepositGuard only as advisory output.
 
 ---
 
@@ -26,7 +26,7 @@ For the Colosseum Frontier / Superteam Ireland submission, an AI layer:
 **What:** When a landlord uploads move-out photos on `/resolve/[id]`, a vision model compares them to the corresponding move-in photos and produces:
 - A per-photo list of detected changes (new stains, holes, missing fixtures, scuff marks).
 - A wear-and-tear classification per change (normal / borderline / damage).
-- A suggested fair split in SOL with a one-paragraph rationale.
+- A suggested fair split in DEPG with a one-paragraph rationale.
 
 **Model options:**
 - GPT-4V / Claude 3.5 Sonnet vision via API (fastest to ship).
@@ -99,7 +99,7 @@ No changes to the on-chain program. All AI work happens in Next.js API routes.
 Insert after the "tenant pays deposit" beat in the base demo script:
 
 1. Landlord uploads move-out photos.
-2. **[NEW]** "AI Analysis" panel appears — model detects a new stain on the carpet and a missing smoke alarm, classifies the stain as borderline wear-and-tear and the alarm as damage, and suggests a split of 0.3 SOL to landlord / 1.7 SOL to tenant.
+2. **[NEW]** "AI Analysis" panel appears — model detects a new stain on the carpet and a missing smoke alarm, classifies the stain as borderline wear-and-tear and the alarm as damage, and suggests a split of 0.3 DEPG to landlord / 1.7 DEPG to tenant.
 3. Landlord accepts the AI suggestion — form auto-fills.
 4. On-chain `propose_release` transaction fires with that split.
 5. Tenant reviews the AI reasoning, agrees, approves on-chain.
@@ -133,4 +133,4 @@ When flipping from base PRD to AI track:
 3. Implement `/api/ai-analyze` and `/api/ai-arbitrate` route handlers.
 4. Add `AIAnalysisPanel` import to `src/app/resolve/[id]/page.tsx` and `src/app/arbitrate/[id]/page.tsx`.
 5. Update demo script to include the AI beat (§5).
-6. Update the README one-liner from "Solana escrow for Irish rent deposits" to "AI-assisted Solana escrow for Irish rent deposits".
+6. Update the README one-liner from "DepositGuard escrow for Irish rent deposits" to "AI-assisted DepositGuard escrow for Irish rent deposits".

@@ -16,7 +16,7 @@ body {
   color: var(--foreground);
 }
 
-/* Solana wallet adapter modal overrides */
+/* DepositGuard wallet adapter modal overrides */
 .wallet-adapter-modal-wrapper {
   background: #111827 !important;
 }

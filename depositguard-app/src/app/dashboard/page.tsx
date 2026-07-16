@@ -157,7 +157,7 @@ function DashboardContent() {
                   </div>
                   <h3 className="font-medium text-gray-100 truncate">{t.property_address}</h3>
                   <div className="flex items-center gap-4 mt-1.5 text-sm text-gray-500">
-                    <span>{t.deposit_amount} SOL</span>
+                    <span>{t.deposit_amount} DEPG</span>
                     <span>·</span>
                     <span>{t.lease_start} → {t.lease_end}</span>
                     <span>·</span>
