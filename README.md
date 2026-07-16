@@ -36,7 +36,6 @@ DepositGuard locks rent deposits in a **Solana Program Derived Address (PDA)**. 
 .
 ├── depositguard-app/        # Next.js 16 frontend (deployed on Vercel)
 ├── depositguard-program/    # Solana program (Anchor / Rust)
-├── DepositGuard PRD.pdf     # Product requirements
 └── DepositGuard PRD - AI-ML Addendum.md
 ```
 
