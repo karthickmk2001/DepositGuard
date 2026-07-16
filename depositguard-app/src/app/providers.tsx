@@ -15,9 +15,16 @@ export function DepositGuardProviders({ children }: { children: React.ReactNode 
   const wallets = useMemo(() => [new PhantomWalletAdapter()], []);
 
   // Wallet not installed / autoConnect with no extension present is an
-  // expected state (not a bug) — don't let it surface as a console error.
-  const onError = useCallback((error: WalletError) => {
-    if (error instanceof WalletNotReadyError) return;
+  // expected state (not a bug) — don't let it surface as a console error,
+  // but still send the user to install the wallet, same as the adapter's
+  // default behavior.
+  const onError = useCallback((error: WalletError, adapter?: { url: string }) => {
+    if (error instanceof WalletNotReadyError) {
+      if (typeof window !== "undefined" && adapter) {
+        window.open(adapter.url, "_blank");
+      }
+      return;
+    }
     console.error(error);
   }, []);
 
