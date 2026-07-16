@@ -1,0 +1,76 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="To-Be DepositGuard process" id="tobe1">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" page="1" pageWidth="1500" pageHeight="900">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="pool" value="To-Be: DepositGuard automated deposit process" style="swimlane;horizontal=0;startSize=30;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="1420" height="820" as="geometry"/>
+        </mxCell>
+        <mxCell id="laneL" value="Landlord" style="swimlane;horizontal=0;startSize=30;" vertex="1" parent="pool">
+          <mxGeometry x="30" y="0" width="1390" height="180" as="geometry"/>
+        </mxCell>
+        <mxCell id="laneP" value="DepositGuard platform (RPA + AI)" style="swimlane;horizontal=0;startSize=30;" vertex="1" parent="pool">
+          <mxGeometry x="30" y="180" width="1390" height="300" as="geometry"/>
+        </mxCell>
+        <mxCell id="laneT" value="Tenant" style="swimlane;horizontal=0;startSize=30;" vertex="1" parent="pool">
+          <mxGeometry x="30" y="480" width="1390" height="170" as="geometry"/>
+        </mxCell>
+        <mxCell id="laneA" value="Arbitrator" style="swimlane;horizontal=0;startSize=30;" vertex="1" parent="pool">
+          <mxGeometry x="30" y="650" width="1390" height="170" as="geometry"/>
+        </mxCell>
+        <mxCell id="start" value="New tenancy intake" style="ellipse;whiteSpace=wrap;fillColor=#d5e8d4;" vertex="1" parent="laneL">
+          <mxGeometry x="50" y="60" width="50" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="l1" value="Submit tenancy details and move-in photos" style="rounded=1;whiteSpace=wrap;" vertex="1" parent="laneL">
+          <mxGeometry x="140" y="55" width="160" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="l2" value="Upload move-out photos" style="rounded=1;whiteSpace=wrap;" vertex="1" parent="laneL">
+          <mxGeometry x="720" y="55" width="150" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="p1" value="RPA BOT: validate intake, hash photos, create escrow, notify parties" style="rounded=1;whiteSpace=wrap;fillColor=#e1d5e7;" vertex="1" parent="laneP">
+          <mxGeometry x="140" y="50" width="180" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="p2" value="Deposit locked in escrow" style="rounded=1;whiteSpace=wrap;" vertex="1" parent="laneP">
+          <mxGeometry x="400" y="55" width="150" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="p3" value="AI AGENT: compare photos, classify wear vs damage, suggest split" style="rounded=1;whiteSpace=wrap;fillColor=#e1d5e7;" vertex="1" parent="laneP">
+          <mxGeometry x="720" y="160" width="190" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="gw" value="Both parties accept split?" style="rhombus;whiteSpace=wrap;fillColor=#fff2cc;" vertex="1" parent="laneP">
+          <mxGeometry x="990" y="155" width="120" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="p4" value="Release funds from escrow (seconds)" style="rounded=1;whiteSpace=wrap;" vertex="1" parent="laneP">
+          <mxGeometry x="1180" y="50" width="160" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="endok" value="Deposit settled" style="ellipse;whiteSpace=wrap;fillColor=#d5e8d4;strokeWidth=3;" vertex="1" parent="laneP">
+          <mxGeometry x="1180" y="140" width="50" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="t1" value="Pay deposit into escrow" style="rounded=1;whiteSpace=wrap;" vertex="1" parent="laneT">
+          <mxGeometry x="400" y="55" width="150" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="t2" value="Review AI report and respond" style="rounded=1;whiteSpace=wrap;" vertex="1" parent="laneT">
+          <mxGeometry x="990" y="55" width="150" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="a1" value="Review case with AI report as decision aid (days)" style="rounded=1;whiteSpace=wrap;" vertex="1" parent="laneA">
+          <mxGeometry x="990" y="50" width="180" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="enda" value="Ruling executed on-chain" style="ellipse;whiteSpace=wrap;fillColor=#d5e8d4;strokeWidth=3;" vertex="1" parent="laneA">
+          <mxGeometry x="1230" y="60" width="50" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;" edge="1" parent="pool" source="start" target="l1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;" edge="1" parent="pool" source="l1" target="p1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;" edge="1" parent="pool" source="p1" target="t1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;" edge="1" parent="pool" source="t1" target="p2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;" edge="1" parent="pool" source="p2" target="l2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e6" style="edgeStyle=orthogonalEdgeStyle;" edge="1" parent="pool" source="l2" target="p3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e7" style="edgeStyle=orthogonalEdgeStyle;" edge="1" parent="pool" source="p3" target="gw"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e8" style="edgeStyle=orthogonalEdgeStyle;" edge="1" parent="pool" source="gw" target="t2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e9" value="yes" style="edgeStyle=orthogonalEdgeStyle;" edge="1" parent="pool" source="gw" target="p4"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e10" style="edgeStyle=orthogonalEdgeStyle;" edge="1" parent="pool" source="p4" target="endok"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e11" value="no" style="edgeStyle=orthogonalEdgeStyle;" edge="1" parent="pool" source="gw" target="a1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e12" style="edgeStyle=orthogonalEdgeStyle;" edge="1" parent="pool" source="a1" target="enda"><mxGeometry relative="1" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

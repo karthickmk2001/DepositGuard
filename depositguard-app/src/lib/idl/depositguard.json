@@ -1,0 +1,110 @@
+{
+  "version": "0.1.0",
+  "name": "depositguard",
+  "instructions": [
+    {
+      "name": "createTenancy",
+      "accounts": [
+        { "name": "escrow", "isMut": true, "isSigner": false },
+        { "name": "landlord", "isMut": true, "isSigner": true },
+        { "name": "systemProgram", "isMut": false, "isSigner": false }
+      ],
+      "args": [
+        { "name": "tenancyId", "type": "string" },
+        { "name": "depositLamports", "type": "u64" },
+        { "name": "moveInHash", "type": "string" }
+      ]
+    },
+    {
+      "name": "deposit",
+      "accounts": [
+        { "name": "escrow", "isMut": true, "isSigner": false },
+        { "name": "tenant", "isMut": true, "isSigner": true },
+        { "name": "systemProgram", "isMut": false, "isSigner": false }
+      ],
+      "args": []
+    },
+    {
+      "name": "proposeRelease",
+      "accounts": [
+        { "name": "escrow", "isMut": true, "isSigner": false },
+        { "name": "landlord", "isMut": true, "isSigner": true }
+      ],
+      "args": [
+        { "name": "landlordLamports", "type": "u64" }
+      ]
+    },
+    {
+      "name": "approveRelease",
+      "accounts": [
+        { "name": "escrow", "isMut": true, "isSigner": false },
+        { "name": "landlord", "isMut": true, "isSigner": false },
+        { "name": "tenant", "isMut": true, "isSigner": true }
+      ],
+      "args": []
+    },
+    {
+      "name": "dispute",
+      "accounts": [
+        { "name": "escrow", "isMut": true, "isSigner": false },
+        { "name": "tenant", "isMut": true, "isSigner": true }
+      ],
+      "args": []
+    },
+    {
+      "name": "arbitrate",
+      "accounts": [
+        { "name": "escrow", "isMut": true, "isSigner": false },
+        { "name": "landlord", "isMut": true, "isSigner": false },
+        { "name": "tenant", "isMut": true, "isSigner": false },
+        { "name": "arbitrator", "isMut": false, "isSigner": true }
+      ],
+      "args": [
+        { "name": "landlordLamports", "type": "u64" }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "EscrowState",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          { "name": "tenancyId", "type": "string" },
+          { "name": "landlord", "type": "publicKey" },
+          { "name": "tenant", "type": "publicKey" },
+          { "name": "arbitrator", "type": "publicKey" },
+          { "name": "depositLamports", "type": "u64" },
+          { "name": "proposedLandlordLamports", "type": "u64" },
+          { "name": "proposedTenantLamports", "type": "u64" },
+          { "name": "moveInHash", "type": "string" },
+          { "name": "landlordAgreed", "type": "bool" },
+          { "name": "tenantAgreed", "type": "bool" },
+          { "name": "status", "type": { "defined": "EscrowStatus" } },
+          { "name": "bump", "type": "u8" }
+        ]
+      }
+    }
+  ],
+  "types": [
+    {
+      "name": "EscrowStatus",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          { "name": "AwaitingDeposit" },
+          { "name": "Active" },
+          { "name": "MoveOutProposed" },
+          { "name": "Disputed" },
+          { "name": "Completed" }
+        ]
+      }
+    }
+  ],
+  "errors": [
+    { "code": 6000, "name": "InvalidStatus", "msg": "Escrow is not in the correct status for this action" },
+    { "code": 6001, "name": "Unauthorized", "msg": "Caller is not authorized for this action" },
+    { "code": 6002, "name": "TenantAlreadySet", "msg": "Tenant has already paid into this escrow" },
+    { "code": 6003, "name": "InvalidAmount", "msg": "Amount exceeds the total deposit" }
+  ]
+}

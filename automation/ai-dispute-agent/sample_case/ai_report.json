@@ -1,0 +1,19 @@
+{
+  "changes": [
+    {
+      "room": "bedroom",
+      "description": "Hole in wall from installed shelf.",
+      "classification": "borderline",
+      "suggested_deduction_eur": 50
+    },
+    {
+      "room": "living room",
+      "description": "Large stain on carpet attributed to a reported leak.",
+      "classification": "borderline",
+      "suggested_deduction_eur": 100
+    }
+  ],
+  "total_deduction_eur": 150,
+  "tenant_refund_eur": 1650,
+  "reasoning": "The hole in the bedroom wall is borderline since it resulted from an approved installation. The stain in the living room might be attributed to a leak, as claimed by the tenant. Since both issues do not appear to be pure tenant negligence or wear and tear, a partial deduction is suggested."
+}
