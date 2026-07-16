@@ -146,7 +146,7 @@ export default function DepositPage() {
       {/* Move-in photo hash */}
       {tenancy.move_in_hash && (
         <div className="bg-violet-900/20 border border-violet-500/30 rounded-xl px-5 py-4 mb-6">
-          <p className="text-sm font-medium text-violet-400 mb-1">Move-in evidence hash (on Solana)</p>
+          <p className="text-sm font-medium text-violet-400 mb-1">Move-in evidence hash (on-chain)</p>
           <p className="font-mono text-xs text-gray-300 break-all">{tenancy.move_in_hash}</p>
           <p className="text-xs text-gray-500 mt-2">
             By paying the deposit you agree this hash represents the property condition at move-in.
@@ -272,7 +272,7 @@ export default function DepositPage() {
             )}
           </button>
           <p className="text-xs text-gray-500 text-center mt-3">
-            Funds go to a Solana Program Derived Address, not to the landlord. Both parties must sign to release.
+            Funds go to a Program Derived Address, not to the landlord. Both parties must sign to release.
           </p>
         </div>
       )}

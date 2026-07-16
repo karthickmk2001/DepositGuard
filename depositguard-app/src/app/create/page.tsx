@@ -222,7 +222,7 @@ export default function CreatePage() {
           <div>
             <h2 className="font-semibold text-lg mb-1">Upload move-in photos</h2>
             <p className="text-gray-400 text-sm mb-5">
-              Photos are hashed with SHA-256 in your browser. The hash is stored on Solana — photos go to Supabase. Cover all rooms: {ROOMS.join(", ")}.
+              Photos are hashed with SHA-256 in your browser. The hash is stored on-chain — photos go to Supabase. Cover all rooms: {ROOMS.join(", ")}.
             </p>
 
             <label className="block w-full border-2 border-dashed border-gray-700 hover:border-violet-500 rounded-xl p-8 text-center cursor-pointer transition-colors">
@@ -251,7 +251,7 @@ export default function CreatePage() {
                 ))}
                 {combinedPhotoHash && (
                   <div className="bg-violet-900/20 border border-violet-500/30 rounded-lg px-4 py-3 mt-2">
-                    <p className="text-xs text-violet-400 font-medium mb-1">Combined SHA-256 hash (stored on Solana)</p>
+                    <p className="text-xs text-violet-400 font-medium mb-1">Combined SHA-256 hash (stored on-chain)</p>
                     <p className="font-mono text-xs text-gray-300 break-all">{combinedPhotoHash}</p>
                   </div>
                 )}

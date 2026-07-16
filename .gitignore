@@ -22,3 +22,6 @@ npm-debug.log*
 
 # Solana / Anchor
 target/
+
+# TypeScript
+*.tsbuildinfo

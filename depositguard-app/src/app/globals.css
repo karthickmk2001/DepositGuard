@@ -22,6 +22,16 @@ body {
 }
 .wallet-adapter-modal-title {
   color: #f9fafb !important;
+  font-size: 0 !important;
+}
+.wallet-adapter-modal-title::after {
+  content: "Connect a wallet on DepositGuard to continue";
+  font-size: 24px;
+}
+@media (max-width: 374px) {
+  .wallet-adapter-modal-title::after {
+    font-size: 18px;
+  }
 }
 .wallet-adapter-button:not([disabled]):hover {
   background: #6d28d9 !important;

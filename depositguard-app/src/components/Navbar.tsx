@@ -15,8 +15,8 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-14">
 
         <Link href="/" className="flex items-center gap-1.5 shrink-0">
-          <span className="text-violet-400 font-bold text-lg tracking-tight">Sol</span>
-          <span className="font-bold text-lg tracking-tight">Rent</span>
+          <span className="text-violet-400 font-bold text-lg tracking-tight">Deposit</span>
+          <span className="font-bold text-lg tracking-tight">Guard</span>
           <span className="ml-1.5 text-[10px] bg-violet-500/15 text-violet-400 px-1.5 py-0.5 rounded border border-violet-500/20">
             Devnet
           </span>

@@ -11,11 +11,6 @@ export default function Home() {
         </div>
 
         <div className="relative max-w-3xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 bg-violet-500/10 border border-violet-500/20 text-violet-400 text-xs px-3 py-1 rounded-full mb-8">
-            <span className="w-1.5 h-1.5 rounded-full bg-violet-400 animate-pulse" />
-            Live on Solana Devnet · Superteam Ireland
-          </div>
-
           <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-5">
             Your deposit.<br />
             <span className="text-violet-400">Not your landlord&apos;s.</span>
@@ -23,7 +18,7 @@ export default function Home() {
 
           <p className="text-lg text-gray-400 max-w-xl mx-auto mb-10 leading-relaxed">
             Ireland has no deposit protection scheme. DepositGuard locks rent deposits in a
-            Solana escrow — neither side can touch it without the other agreeing.
+            neutral escrow — neither side can touch it without the other agreeing.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
@@ -68,7 +63,7 @@ export default function Home() {
             &ldquo;I paid €2,000 deposit. My landlord kept €800 for cleaning that wasn&apos;t needed.
             RTB told me nine months.&rdquo;
           </blockquote>
-          <p className="text-sm text-gray-600 mt-3 pl-5">International student, Dublin 2024</p>
+          <p className="text-sm text-gray-600 mt-3 pl-5">International student, Dublin 2026</p>
         </div>
       </section>
 
@@ -81,7 +76,7 @@ export default function Home() {
               {
                 num: "1",
                 title: "Landlord creates the escrow",
-                desc: "Sets the deposit amount, uploads move-in photos. A SHA-256 hash of every photo is stored on Solana — tamper-proof from day one.",
+                desc: "Sets the deposit amount, uploads move-in photos. A SHA-256 hash of every photo is stored on-chain — tamper-proof from day one.",
               },
               {
                 num: "2",
@@ -91,7 +86,7 @@ export default function Home() {
               {
                 num: "3",
                 title: "Tenant pays into the PDA",
-                desc: "Deposit goes to a Solana Program Derived Address — not the landlord's wallet. Neither side can withdraw unilaterally.",
+                desc: "Deposit goes to a Program Derived Address — not the landlord's wallet. Neither side can withdraw unilaterally.",
               },
               {
                 num: "4",
@@ -127,7 +122,7 @@ export default function Home() {
               <div className="px-5 py-3 text-violet-400 border-l border-gray-800">DepositGuard</div>
             </div>
             {[
-              { label: "Who holds the deposit", current: "Landlord", depositguard: "Solana PDA" },
+              { label: "Who holds the deposit", current: "Landlord", depositguard: "On-chain PDA" },
               { label: "Move-in evidence", current: "Phone photos, easily faked", depositguard: "SHA-256 hash on-chain" },
               { label: "Dispute resolution", current: "RTB: 6–12 months", depositguard: "Arbitration: days" },
               { label: "Works for international tenants", current: "No", depositguard: "Yes — just a wallet" },

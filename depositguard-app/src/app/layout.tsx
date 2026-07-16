@@ -9,7 +9,7 @@ const geist = Geist({ subsets: ["latin"], variable: "--font-geist" });
 export const metadata: Metadata = {
   title: "DepositGuard : Deposit Shield for Ireland",
   description:
-    "Decentralised rent deposit escrow on Solana. Neutral, transparent, and instant. Built for Ireland's 330,000 renters.",
+    "Decentralised rent deposit escrow. Neutral, transparent, and instant. Built for Ireland's 330,000 renters.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -20,7 +20,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Navbar />
           <main className="flex-1">{children}</main>
           <footer className="border-t border-gray-800/60 py-5 text-center text-xs text-gray-600">
-            DepositGuard · Solana Devnet · Colosseum Frontier 2026
+            DepositGuard
           </footer>
         </SolanaProviders>
       </body>
