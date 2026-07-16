@@ -1,8 +1,8 @@
 # DepositGuard
 
-**Decentralised rent deposit escrow for Ireland — built on Solana.**
+**Decentralised rent deposit escrow for Ireland **
 
-Live demo: **[depositguard-app.vercel.app](https://depositguard-app.vercel.app)** (Solana Devnet)
+Live demo: **[depositguard-app.vercel.app](https://depositguard-app.vercel.app)** 
 
 ---
 
@@ -14,7 +14,7 @@ International tenants get hit hardest — many have already left the country bef
 
 ## The solution
 
-DepositGuard locks rent deposits in a **Solana Program Derived Address (PDA)**. Neither side can withdraw unilaterally:
+DepositGuard locks rent deposits in a **Program Derived Address (PDA)**. Neither side can withdraw unilaterally:
 
 1. **Landlord creates the escrow** — sets the deposit amount, uploads move-in photos. A SHA-256 hash of every photo is stored on-chain.
 2. **Inspector signs the condition report** — an independent inspector signs the baseline on-chain.
@@ -23,7 +23,7 @@ DepositGuard locks rent deposits in a **Solana Program Derived Address (PDA)**. 
 
 | | Today | DepositGuard |
 |---|---|---|
-| Who holds the deposit | Landlord | Solana PDA |
+| Who holds the deposit | Landlord | PDA |
 | Move-in evidence | Phone photos, easily faked | SHA-256 hash on-chain |
 | Dispute resolution | RTB: 6–12 months | Arbitration: days |
 | Works for international tenants | No | Yes — just a wallet |
@@ -68,4 +68,4 @@ Then open `http://localhost:3000` and connect a Phantom wallet on Devnet.
 
 ## Status
 
-Hackathon build for **Colosseum Frontier 2026 / Superteam Ireland**. Currently runs on Solana Devnet — not production-ready for real deposits.
+Currently runs on — not production-ready for real deposits.
