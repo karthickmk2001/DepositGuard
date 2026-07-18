@@ -15,17 +15,17 @@ export default function Home() {
             priority
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-gray-950 via-gray-950/85 to-gray-950/55" />
-          <div className="absolute inset-0 bg-gray-950/40" />
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-950/85 to-slate-950/55" />
+          <div className="absolute inset-0 bg-slate-950/40" />
         </div>
 
         <div className="relative max-w-3xl mx-auto text-center">
           <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.1] mb-5">
             Your deposit.<br />
-            <span className="text-violet-400">Not your landlord&apos;s.</span>
+            <span className="text-teal-400">Not your landlord&apos;s.</span>
           </h1>
 
-          <p className="text-lg text-gray-400 max-w-xl mx-auto mb-10 leading-relaxed">
+          <p className="text-lg text-slate-400 max-w-xl mx-auto mb-10 leading-relaxed">
             Ireland has no deposit protection scheme. DepositGuard locks rent deposits in a
             neutral escrow — neither side can touch it without the other agreeing.
           </p>
@@ -33,13 +33,13 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
               href="/create"
-              className="bg-violet-600 hover:bg-violet-500 text-white font-medium px-7 py-3 rounded-xl transition-colors"
+              className="bg-teal-600 hover:bg-teal-500 text-white font-medium px-7 py-3 rounded-xl transition-colors"
             >
               Create a Tenancy
             </Link>
             <Link
               href="/dashboard"
-              className="border border-gray-700 hover:border-gray-600 text-gray-300 hover:text-white font-medium px-7 py-3 rounded-xl transition-colors"
+              className="border border-slate-700 hover:border-slate-600 text-slate-300 hover:text-white font-medium px-7 py-3 rounded-xl transition-colors"
             >
               View Dashboard
             </Link>
@@ -48,19 +48,19 @@ export default function Home() {
       </section>
 
       {/* 3 numbers that matter */}
-      <section className="py-12 px-4 border-y border-gray-800/60">
+      <section className="py-12 px-4 border-y border-slate-800/60">
         <div className="max-w-3xl mx-auto grid grid-cols-3 gap-6 text-center">
           <div>
-            <div className="text-3xl font-bold text-violet-400 mb-1">€500M+</div>
-            <div className="text-sm text-gray-500">in deposits held by landlords yearly</div>
+            <div className="text-3xl font-bold text-teal-400 mb-1 tabular-nums">€500M+</div>
+            <div className="text-sm text-slate-500">in deposits held by landlords yearly</div>
           </div>
           <div>
-            <div className="text-3xl font-bold text-violet-400 mb-1">0</div>
-            <div className="text-sm text-gray-500">deposit protection schemes in Ireland</div>
+            <div className="text-3xl font-bold text-teal-400 mb-1 tabular-nums">0</div>
+            <div className="text-sm text-slate-500">deposit protection schemes in Ireland</div>
           </div>
           <div>
-            <div className="text-3xl font-bold text-violet-400 mb-1">9 mo</div>
-            <div className="text-sm text-gray-500">average RTB dispute wait time</div>
+            <div className="text-3xl font-bold text-teal-400 mb-1 tabular-nums">9 mo</div>
+            <div className="text-sm text-slate-500">average RTB dispute wait time</div>
           </div>
         </div>
       </section>
@@ -68,16 +68,16 @@ export default function Home() {
       {/* Quote */}
       <section className="py-14 px-4">
         <div className="max-w-2xl mx-auto">
-          <blockquote className="text-lg text-gray-300 italic border-l-2 border-violet-500 pl-5 leading-relaxed">
+          <blockquote className="text-lg text-slate-300 italic border-l-2 border-teal-500 pl-5 leading-relaxed">
             &ldquo;I paid €2,000 deposit. My landlord kept €800 for cleaning that wasn&apos;t needed.
             RTB told me nine months.&rdquo;
           </blockquote>
-          <p className="text-sm text-gray-600 mt-3 pl-5">International student, Dublin 2026</p>
+          <p className="text-sm text-slate-600 mt-3 pl-5">International student, Dublin 2026</p>
         </div>
       </section>
 
       {/* How it works */}
-      <section className="py-16 px-4 bg-gray-900/40 border-y border-gray-800/60">
+      <section className="py-16 px-4 bg-slate-900/40 border-y border-slate-800/60">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-2xl font-bold mb-10">How it works</h2>
           <div className="space-y-0">
@@ -105,14 +105,14 @@ export default function Home() {
             ].map((s, i, arr) => (
               <div key={s.num} className={`flex gap-5 ${i < arr.length - 1 ? "pb-8" : ""}`}>
                 <div className="flex flex-col items-center">
-                  <div className="w-7 h-7 rounded-full bg-violet-600/20 border border-violet-500/40 text-violet-400 text-xs font-bold flex items-center justify-center shrink-0">
+                  <div className="w-7 h-7 rounded-full bg-teal-600/20 border border-teal-500/40 text-teal-400 text-xs font-bold flex items-center justify-center shrink-0">
                     {s.num}
                   </div>
-                  {i < arr.length - 1 && <div className="w-px flex-1 bg-gray-800 mt-2" />}
+                  {i < arr.length - 1 && <div className="w-px flex-1 bg-slate-800 mt-2" />}
                 </div>
                 <div className="pb-2">
-                  <h3 className="font-semibold text-gray-100 mb-1">{s.title}</h3>
-                  <p className="text-sm text-gray-400 leading-relaxed">{s.desc}</p>
+                  <h3 className="font-semibold text-slate-100 mb-1">{s.title}</h3>
+                  <p className="text-sm text-slate-400 leading-relaxed">{s.desc}</p>
                 </div>
               </div>
             ))}
@@ -124,11 +124,11 @@ export default function Home() {
       <section className="py-16 px-4">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-2xl font-bold mb-8">Current system vs DepositGuard</h2>
-          <div className="rounded-xl border border-gray-800 overflow-hidden text-sm">
-            <div className="grid grid-cols-3 bg-gray-900 border-b border-gray-800 text-xs font-semibold uppercase tracking-wide">
-              <div className="px-5 py-3 text-gray-500" />
-              <div className="px-5 py-3 text-gray-500 border-l border-gray-800">Today</div>
-              <div className="px-5 py-3 text-violet-400 border-l border-gray-800">DepositGuard</div>
+          <div className="rounded-xl border border-slate-800 overflow-hidden text-sm">
+            <div className="grid grid-cols-3 bg-slate-900 border-b border-slate-800 text-xs font-semibold uppercase tracking-wide">
+              <div className="px-5 py-3 text-slate-500" />
+              <div className="px-5 py-3 text-slate-500 border-l border-slate-800">Today</div>
+              <div className="px-5 py-3 text-teal-400 border-l border-slate-800">DepositGuard</div>
             </div>
             {[
               { label: "Who holds the deposit", current: "Landlord", depositguard: "On-chain PDA" },
@@ -138,11 +138,11 @@ export default function Home() {
             ].map((row, i) => (
               <div
                 key={row.label}
-                className={`grid grid-cols-3 ${i % 2 === 0 ? "bg-gray-900/30" : ""}`}
+                className={`grid grid-cols-3 ${i % 2 === 0 ? "bg-slate-900/30" : ""}`}
               >
-                <div className="px-5 py-3.5 text-gray-400">{row.label}</div>
-                <div className="px-5 py-3.5 text-red-400/70 border-l border-gray-800">{row.current}</div>
-                <div className="px-5 py-3.5 text-green-400 border-l border-gray-800">{row.depositguard}</div>
+                <div className="px-5 py-3.5 text-slate-400">{row.label}</div>
+                <div className="px-5 py-3.5 text-red-400/70 border-l border-slate-800">{row.current}</div>
+                <div className="px-5 py-3.5 text-green-400 border-l border-slate-800">{row.depositguard}</div>
               </div>
             ))}
           </div>
@@ -150,15 +150,15 @@ export default function Home() {
       </section>
 
       {/* Bottom CTA */}
-      <section className="py-16 px-4 border-t border-gray-800/60">
+      <section className="py-16 px-4 border-t border-slate-800/60">
         <div className="max-w-xl mx-auto text-center">
           <h2 className="text-2xl font-bold mb-3">Try it on Devnet</h2>
-          <p className="text-gray-400 text-sm mb-7">
+          <p className="text-slate-400 text-sm mb-7">
             Connect Phantom, switch to Devnet, and run through the full flow. No real money needed.
           </p>
           <Link
             href="/create"
-            className="bg-violet-600 hover:bg-violet-500 text-white font-medium px-8 py-3 rounded-xl transition-colors inline-block"
+            className="bg-teal-600 hover:bg-teal-500 text-white font-medium px-8 py-3 rounded-xl transition-colors inline-block"
           >
             Create a Tenancy
           </Link>

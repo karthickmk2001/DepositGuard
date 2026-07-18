@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #030712;
-  --foreground: #f9fafb;
+  --background: #020617;
+  --foreground: #f8fafc;
 }
 
 @theme inline {
@@ -18,10 +18,10 @@ body {
 
 /* DepositGuard wallet adapter modal overrides */
 .wallet-adapter-modal-wrapper {
-  background: #111827 !important;
+  background: #0f172a !important;
 }
 .wallet-adapter-modal-title {
-  color: #f9fafb !important;
+  color: #f8fafc !important;
   font-size: 0 !important;
 }
 .wallet-adapter-modal-title::after {
@@ -34,5 +34,5 @@ body {
   }
 }
 .wallet-adapter-button:not([disabled]):hover {
-  background: #6d28d9 !important;
+  background: #0f766e !important;
 }

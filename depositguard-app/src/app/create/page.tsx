@@ -119,7 +119,7 @@ export default function CreatePage() {
     >
     <div className="max-w-2xl mx-auto px-4 py-12">
       <h1 className="text-3xl font-bold mb-2">Create a Tenancy</h1>
-      <p className="text-gray-400 mb-8">
+      <p className="text-slate-400 mb-8">
         Set up the deposit escrow for your property. Takes 2 minutes.
       </p>
 
@@ -130,18 +130,18 @@ export default function CreatePage() {
             <div
               className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold transition-colors ${
                 step === s
-                  ? "bg-violet-600 text-white"
+                  ? "bg-teal-600 text-white"
                   : ["details", "photos", "inspector", "confirm"].indexOf(step) > i
-                  ? "bg-violet-900 text-violet-300"
-                  : "bg-gray-800 text-gray-500"
+                  ? "bg-teal-900 text-teal-300"
+                  : "bg-slate-800 text-slate-500"
               }`}
             >
               {i + 1}
             </div>
-            {i < 3 && <div className="flex-1 h-px bg-gray-800 w-8" />}
+            {i < 3 && <div className="flex-1 h-px bg-slate-800 w-8" />}
           </div>
         ))}
-        <div className="ml-2 text-sm text-gray-400 capitalize">{step}</div>
+        <div className="ml-2 text-sm text-slate-400 capitalize">{step}</div>
       </div>
 
       {error && (
@@ -154,7 +154,7 @@ export default function CreatePage() {
       {step === "details" && (
         <div className="space-y-5">
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-1.5">
+            <label className="block text-sm font-medium text-slate-300 mb-1.5">
               Property address
             </label>
             <input
@@ -162,12 +162,12 @@ export default function CreatePage() {
               value={address}
               onChange={(e) => setAddress(e.target.value)}
               placeholder="12 Grafton Street, Dublin 2, D02 T923"
-              className="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-gray-100 placeholder-gray-600 focus:outline-none focus:border-violet-500 transition-colors"
+              className="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-100 placeholder-slate-600 focus:outline-none focus:border-teal-500 transition-colors"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-1.5">
+            <label className="block text-sm font-medium text-slate-300 mb-1.5">
               Deposit amount (DEPG)
             </label>
             <div className="relative">
@@ -178,30 +178,30 @@ export default function CreatePage() {
                 placeholder="2.5"
                 min="0"
                 step="0.01"
-                className="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-gray-100 placeholder-gray-600 focus:outline-none focus:border-violet-500 transition-colors"
+                className="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-100 placeholder-slate-600 focus:outline-none focus:border-teal-500 transition-colors"
               />
-              <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 text-sm">DEPG</span>
+              <span className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 text-sm">DEPG</span>
             </div>
-            <p className="text-xs text-gray-500 mt-1">≈ €{deposit ? (parseFloat(deposit) * 140).toFixed(0) : "0"} EUR at current rates</p>
+            <p className="text-xs text-slate-500 mt-1">≈ €{deposit ? (parseFloat(deposit) * 140).toFixed(0) : "0"} EUR at current rates</p>
           </div>
 
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-1.5">Lease start</label>
+              <label className="block text-sm font-medium text-slate-300 mb-1.5">Lease start</label>
               <input
                 type="date"
                 value={leaseStart}
                 onChange={(e) => setLeaseStart(e.target.value)}
-                className="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-gray-100 focus:outline-none focus:border-violet-500 transition-colors"
+                className="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-teal-500 transition-colors"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-1.5">Lease end</label>
+              <label className="block text-sm font-medium text-slate-300 mb-1.5">Lease end</label>
               <input
                 type="date"
                 value={leaseEnd}
                 onChange={(e) => setLeaseEnd(e.target.value)}
-                className="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-gray-100 focus:outline-none focus:border-violet-500 transition-colors"
+                className="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-teal-500 transition-colors"
               />
             </div>
           </div>
@@ -209,7 +209,7 @@ export default function CreatePage() {
           <button
             onClick={() => setStep("photos")}
             disabled={!address || !deposit || !leaseStart || !leaseEnd}
-            className="w-full bg-violet-600 hover:bg-violet-500 disabled:bg-gray-800 disabled:text-gray-500 text-white font-medium py-3 rounded-xl transition-colors"
+            className="w-full bg-teal-600 hover:bg-teal-500 disabled:bg-slate-800 disabled:text-slate-500 text-white font-medium py-3 rounded-xl transition-colors"
           >
             Continue
           </button>
@@ -221,11 +221,11 @@ export default function CreatePage() {
         <div className="space-y-5">
           <div>
             <h2 className="font-semibold text-lg mb-1">Upload move-in photos</h2>
-            <p className="text-gray-400 text-sm mb-5">
+            <p className="text-slate-400 text-sm mb-5">
               Photos are hashed with SHA-256 in your browser. The hash is stored on-chain — photos go to Supabase. Cover all rooms: {ROOMS.join(", ")}.
             </p>
 
-            <label className="block w-full border-2 border-dashed border-gray-700 hover:border-violet-500 rounded-xl p-8 text-center cursor-pointer transition-colors">
+            <label className="block w-full border-2 border-dashed border-slate-700 hover:border-teal-500 rounded-xl p-8 text-center cursor-pointer transition-colors">
               <input
                 type="file"
                 multiple
@@ -234,25 +234,25 @@ export default function CreatePage() {
                 className="hidden"
               />
               <div className="text-4xl mb-3">📷</div>
-              <div className="text-gray-300 font-medium">Click to upload photos</div>
-              <div className="text-gray-500 text-sm mt-1">Minimum 2 per room recommended</div>
+              <div className="text-slate-300 font-medium">Click to upload photos</div>
+              <div className="text-slate-500 text-sm mt-1">Minimum 2 per room recommended</div>
             </label>
 
             {photos.length > 0 && (
               <div className="mt-4 space-y-2">
-                <p className="text-sm font-medium text-gray-300">{photos.length} photo(s) selected</p>
+                <p className="text-sm font-medium text-slate-300">{photos.length} photo(s) selected</p>
                 {photos.map((f, i) => (
-                  <div key={i} className="flex items-center justify-between bg-gray-900 rounded-lg px-4 py-2.5 text-sm">
-                    <span className="text-gray-300 truncate max-w-[200px]">{f.name}</span>
-                    <span className="font-mono text-xs text-violet-400 truncate max-w-[160px]">
+                  <div key={i} className="flex items-center justify-between bg-slate-900 rounded-lg px-4 py-2.5 text-sm">
+                    <span className="text-slate-300 truncate max-w-[200px]">{f.name}</span>
+                    <span className="font-mono text-xs text-teal-400 truncate max-w-[160px]">
                       {photoHashes[i]?.slice(0, 16)}…
                     </span>
                   </div>
                 ))}
                 {combinedPhotoHash && (
-                  <div className="bg-violet-900/20 border border-violet-500/30 rounded-lg px-4 py-3 mt-2">
-                    <p className="text-xs text-violet-400 font-medium mb-1">Combined SHA-256 hash (stored on-chain)</p>
-                    <p className="font-mono text-xs text-gray-300 break-all">{combinedPhotoHash}</p>
+                  <div className="bg-teal-900/20 border border-teal-500/30 rounded-lg px-4 py-3 mt-2">
+                    <p className="text-xs text-teal-400 font-medium mb-1">Combined SHA-256 hash (stored on-chain)</p>
+                    <p className="font-mono text-xs text-slate-300 break-all">{combinedPhotoHash}</p>
                   </div>
                 )}
               </div>
@@ -262,13 +262,13 @@ export default function CreatePage() {
           <div className="flex gap-3">
             <button
               onClick={() => setStep("details")}
-              className="flex-1 border border-gray-700 hover:border-gray-500 text-gray-300 font-medium py-3 rounded-xl transition-colors"
+              className="flex-1 border border-slate-700 hover:border-slate-500 text-slate-300 font-medium py-3 rounded-xl transition-colors"
             >
               Back
             </button>
             <button
               onClick={() => setStep("inspector")}
-              className="flex-1 bg-violet-600 hover:bg-violet-500 disabled:bg-gray-800 disabled:text-gray-500 text-white font-medium py-3 rounded-xl transition-colors"
+              className="flex-1 bg-teal-600 hover:bg-teal-500 disabled:bg-slate-800 disabled:text-slate-500 text-white font-medium py-3 rounded-xl transition-colors"
             >
               Continue {photos.length === 0 && "(skip photos)"}
             </button>
@@ -280,7 +280,7 @@ export default function CreatePage() {
       {step === "inspector" && (
         <div className="space-y-5">
           <h2 className="font-semibold text-lg mb-1">Property inspection</h2>
-          <p className="text-gray-400 text-sm mb-5">
+          <p className="text-slate-400 text-sm mb-5">
             An independent inspector visits your property, photos every room, and signs on-chain. This is your strongest evidence in any dispute.
           </p>
 
@@ -289,15 +289,15 @@ export default function CreatePage() {
               onClick={() => setWantsInspector(true)}
               className={`border-2 rounded-xl p-5 text-left transition-colors ${
                 wantsInspector === true
-                  ? "border-violet-500 bg-violet-500/10"
-                  : "border-gray-700 hover:border-gray-500"
+                  ? "border-teal-500 bg-teal-500/10"
+                  : "border-slate-700 hover:border-slate-500"
               }`}
             >
               <div className="font-semibold mb-1 flex items-center gap-2">
                 <span>Inspector Verified</span>
-                <span className="text-xs bg-violet-500/20 text-violet-400 px-2 py-0.5 rounded-full">Recommended</span>
+                <span className="text-xs bg-teal-500/20 text-teal-400 px-2 py-0.5 rounded-full">Recommended</span>
               </div>
-              <div className="text-sm text-gray-400">
+              <div className="text-sm text-slate-400">
                 Independent inspector visits, signs report on-chain. Strongest evidence if disputed. Fee: €50–100 paid in DEPG.
               </div>
             </button>
@@ -306,12 +306,12 @@ export default function CreatePage() {
               onClick={() => setWantsInspector(false)}
               className={`border-2 rounded-xl p-5 text-left transition-colors ${
                 wantsInspector === false
-                  ? "border-violet-500 bg-violet-500/10"
-                  : "border-gray-700 hover:border-gray-500"
+                  ? "border-teal-500 bg-teal-500/10"
+                  : "border-slate-700 hover:border-slate-500"
               }`}
             >
               <div className="font-semibold mb-1">Standard (Free)</div>
-              <div className="text-sm text-gray-400">
+              <div className="text-sm text-slate-400">
                 Landlord + tenant both sign the same photo hash on-chain. No inspector needed. Weaker evidence in disputes.
               </div>
             </button>
@@ -320,14 +320,14 @@ export default function CreatePage() {
           <div className="flex gap-3">
             <button
               onClick={() => setStep("photos")}
-              className="flex-1 border border-gray-700 hover:border-gray-500 text-gray-300 font-medium py-3 rounded-xl transition-colors"
+              className="flex-1 border border-slate-700 hover:border-slate-500 text-slate-300 font-medium py-3 rounded-xl transition-colors"
             >
               Back
             </button>
             <button
               onClick={() => setStep("confirm")}
               disabled={wantsInspector === null}
-              className="flex-1 bg-violet-600 hover:bg-violet-500 disabled:bg-gray-800 disabled:text-gray-500 text-white font-medium py-3 rounded-xl transition-colors"
+              className="flex-1 bg-teal-600 hover:bg-teal-500 disabled:bg-slate-800 disabled:text-slate-500 text-white font-medium py-3 rounded-xl transition-colors"
             >
               Continue
             </button>
@@ -340,7 +340,7 @@ export default function CreatePage() {
         <div className="space-y-5">
           <h2 className="font-semibold text-lg mb-1">Confirm and create</h2>
 
-          <div className="bg-gray-900 border border-gray-800 rounded-xl divide-y divide-gray-800">
+          <div className="bg-slate-900 border border-slate-800 rounded-xl divide-y divide-slate-800">
             {[
               { label: "Property", value: address },
               { label: "Deposit amount", value: `${deposit} DEPG` },
@@ -350,8 +350,8 @@ export default function CreatePage() {
               { label: "Initial status", value: wantsInspector ? "Awaiting Inspection" : "Awaiting Deposit" },
             ].map(({ label, value }) => (
               <div key={label} className="flex justify-between px-5 py-3.5 text-sm">
-                <span className="text-gray-400">{label}</span>
-                <span className="text-gray-100 font-medium text-right max-w-[200px]">{value}</span>
+                <span className="text-slate-400">{label}</span>
+                <span className="text-slate-100 font-medium text-right max-w-[200px]">{value}</span>
               </div>
             ))}
           </div>
@@ -359,14 +359,14 @@ export default function CreatePage() {
           <div className="flex gap-3">
             <button
               onClick={() => setStep("inspector")}
-              className="flex-1 border border-gray-700 hover:border-gray-500 text-gray-300 font-medium py-3 rounded-xl transition-colors"
+              className="flex-1 border border-slate-700 hover:border-slate-500 text-slate-300 font-medium py-3 rounded-xl transition-colors"
             >
               Back
             </button>
             <button
               onClick={handleSubmit}
               disabled={loading}
-              className="flex-1 bg-violet-600 hover:bg-violet-500 disabled:bg-violet-800 text-white font-medium py-3 rounded-xl transition-colors flex items-center justify-center gap-2"
+              className="flex-1 bg-teal-600 hover:bg-teal-500 disabled:bg-teal-800 text-white font-medium py-3 rounded-xl transition-colors flex items-center justify-center gap-2"
             >
               {loading ? (
                 <>

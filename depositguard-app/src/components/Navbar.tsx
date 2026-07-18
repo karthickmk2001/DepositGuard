@@ -11,13 +11,13 @@ export default function Navbar() {
   useEffect(() => setMounted(true), []);
 
   return (
-    <nav className="border-b border-gray-800/60 bg-gray-950/90 backdrop-blur-sm sticky top-0 z-50">
+    <nav className="border-b border-slate-800/60 bg-slate-950/90 backdrop-blur-sm sticky top-0 z-50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-14">
 
         <Link href="/" className="flex items-center gap-1.5 shrink-0">
-          <span className="text-violet-400 font-bold text-lg tracking-tight">Deposit</span>
+          <span className="text-teal-400 font-bold text-lg tracking-tight">Deposit</span>
           <span className="font-bold text-lg tracking-tight">Guard</span>
-          <span className="ml-1.5 text-[10px] bg-violet-500/15 text-violet-400 px-1.5 py-0.5 rounded border border-violet-500/20">
+          <span className="ml-1.5 text-[10px] bg-teal-500/15 text-teal-400 px-1.5 py-0.5 rounded border border-teal-500/20">
             Devnet
           </span>
         </Link>
@@ -33,8 +33,8 @@ export default function Navbar() {
               href={l.href}
               className={`text-sm hidden sm:block transition-colors ${
                 pathname === l.href
-                  ? "text-violet-400"
-                  : "text-gray-400 hover:text-gray-100"
+                  ? "text-teal-400"
+                  : "text-slate-400 hover:text-slate-100"
               }`}
             >
               {l.label}
@@ -44,7 +44,7 @@ export default function Navbar() {
           {mounted && (
             <WalletMultiButton
               style={{
-                background: "rgb(109 40 217)",
+                background: "rgb(15 118 110)",
                 height: "34px",
                 fontSize: "13px",
                 borderRadius: "8px",

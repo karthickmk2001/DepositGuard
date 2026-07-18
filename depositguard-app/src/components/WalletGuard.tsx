@@ -28,9 +28,9 @@ export default function WalletGuard({ children, message, sub }: Props) {
         <h1 className="text-2xl font-bold mb-4">
           {message ?? "Connect your wallet to continue"}
         </h1>
-        {sub && <p className="text-gray-400 mb-8">{sub}</p>}
+        {sub && <p className="text-slate-400 mb-8">{sub}</p>}
         <WalletMultiButton
-          style={{ background: "rgb(109 40 217)", borderRadius: "12px" }}
+          style={{ background: "rgb(15 118 110)", borderRadius: "12px" }}
         />
       </div>
     );

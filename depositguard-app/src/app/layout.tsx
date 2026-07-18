@@ -15,11 +15,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${geist.variable} h-full`}>
-      <body className="min-h-full flex flex-col bg-gray-950 text-gray-100 antialiased">
+      <body className="min-h-full flex flex-col bg-slate-950 text-slate-100 antialiased">
         <DepositGuardProviders>
           <Navbar />
           <main className="flex-1">{children}</main>
-          <footer className="border-t border-gray-800/60 py-5 text-center text-xs text-gray-600">
+          <footer className="border-t border-slate-800/60 py-5 text-center text-xs text-slate-600">
             DepositGuard
           </footer>
         </DepositGuardProviders>

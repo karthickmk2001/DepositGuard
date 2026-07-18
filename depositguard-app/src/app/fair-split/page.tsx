@@ -97,9 +97,9 @@ export default function FairSplitPage() {
   return (
     <div className="max-w-3xl mx-auto px-4 py-12">
       <div className="mb-8">
-        <div className="text-sm text-violet-400 font-medium mb-1">Fair Split Assistant</div>
+        <div className="text-sm text-teal-400 font-medium mb-1">Fair Split Assistant</div>
         <h1 className="text-3xl font-bold mb-2">Move-out dispute assistant</h1>
-        <p className="text-gray-400 text-sm">
+        <p className="text-slate-400 text-sm">
           Describe the move-in condition and what changed at move-out. The AI
           classifies each finding as normal wear-and-tear or chargeable damage,
           and suggests a fair deposit split with a written rationale.
@@ -114,13 +114,13 @@ export default function FairSplitPage() {
 
       <div className="space-y-5">
         <div className="flex justify-between items-center">
-          <label className="block text-sm font-medium text-gray-300">
+          <label className="block text-sm font-medium text-slate-300">
             Total deposit amount (EUR)
           </label>
           <button
             onClick={loadExample}
             type="button"
-            className="text-xs text-violet-400 hover:text-violet-300 underline"
+            className="text-xs text-teal-400 hover:text-teal-300 underline"
           >
             Load example
           </button>
@@ -132,11 +132,11 @@ export default function FairSplitPage() {
           placeholder="1800"
           min="0"
           step="0.01"
-          className="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-gray-100 placeholder-gray-600 focus:outline-none focus:border-violet-500 transition-colors"
+          className="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-100 placeholder-slate-600 focus:outline-none focus:border-teal-500 transition-colors"
         />
 
         <div>
-          <label className="block text-sm font-medium text-gray-300 mb-1.5">
+          <label className="block text-sm font-medium text-slate-300 mb-1.5">
             Move-in condition notes
           </label>
           <textarea
@@ -144,12 +144,12 @@ export default function FairSplitPage() {
             onChange={(e) => setMoveInNotes(e.target.value)}
             rows={3}
             placeholder="e.g. Property was professionally cleaned before move-in, no existing damage recorded..."
-            className="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-gray-100 placeholder-gray-600 focus:outline-none focus:border-violet-500 transition-colors resize-none"
+            className="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-100 placeholder-slate-600 focus:outline-none focus:border-teal-500 transition-colors resize-none"
           />
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-300 mb-1.5">
+          <label className="block text-sm font-medium text-slate-300 mb-1.5">
             Move-out findings
           </label>
           <div className="space-y-2">
@@ -160,13 +160,13 @@ export default function FairSplitPage() {
                   value={f}
                   onChange={(e) => updateFinding(i, e.target.value)}
                   placeholder="e.g. Large stain on living room carpet, not present at move-in"
-                  className="flex-1 bg-gray-900 border border-gray-700 rounded-xl px-4 py-2.5 text-sm text-gray-100 placeholder-gray-600 focus:outline-none focus:border-violet-500 transition-colors"
+                  className="flex-1 bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-slate-100 placeholder-slate-600 focus:outline-none focus:border-teal-500 transition-colors"
                 />
                 {findings.length > 1 && (
                   <button
                     onClick={() => removeFinding(i)}
                     type="button"
-                    className="px-3 text-gray-500 hover:text-red-400 transition-colors"
+                    className="px-3 text-slate-500 hover:text-red-400 transition-colors"
                     aria-label="Remove finding"
                   >
                     ✕
@@ -178,7 +178,7 @@ export default function FairSplitPage() {
           <button
             onClick={addFinding}
             type="button"
-            className="mt-2 text-sm text-violet-400 hover:text-violet-300"
+            className="mt-2 text-sm text-teal-400 hover:text-teal-300"
           >
             + Add another finding
           </button>
@@ -187,7 +187,7 @@ export default function FairSplitPage() {
         <button
           onClick={submit}
           disabled={loading}
-          className="w-full bg-violet-600 hover:bg-violet-500 disabled:bg-violet-800 text-white font-medium py-3 rounded-xl transition-colors flex items-center justify-center gap-2"
+          className="w-full bg-teal-600 hover:bg-teal-500 disabled:bg-teal-800 text-white font-medium py-3 rounded-xl transition-colors flex items-center justify-center gap-2"
         >
           {loading && (
             <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
@@ -198,24 +198,24 @@ export default function FairSplitPage() {
 
       {result && (
         <div className="mt-10 space-y-5">
-          <div className="bg-gray-900 border border-gray-800 rounded-xl divide-y divide-gray-800">
+          <div className="bg-slate-900 border border-slate-800 rounded-xl divide-y divide-slate-800">
             <div className="px-5 py-4 flex justify-between items-center">
-              <span className="text-gray-400 text-sm">Landlord (suggested)</span>
-              <span className="font-bold text-orange-400 text-lg">
+              <span className="text-slate-400 text-sm">Landlord (suggested)</span>
+              <span className="font-bold text-orange-400 text-lg tabular-nums">
                 €{result.suggestedLandlordAmount.toFixed(2)}
               </span>
             </div>
             <div className="px-5 py-4 flex justify-between items-center">
-              <span className="text-gray-400 text-sm">Tenant (suggested)</span>
-              <span className="font-bold text-green-400 text-lg">
+              <span className="text-slate-400 text-sm">Tenant (suggested)</span>
+              <span className="font-bold text-green-400 text-lg tabular-nums">
                 €{result.suggestedTenantAmount.toFixed(2)}
               </span>
             </div>
           </div>
 
-          <div className="bg-violet-900/20 border border-violet-500/30 rounded-xl px-5 py-4">
-            <p className="text-xs text-violet-400 font-medium mb-1">Rationale</p>
-            <p className="text-sm text-gray-300">{result.rationale}</p>
+          <div className="bg-teal-900/20 border border-teal-500/30 rounded-xl px-5 py-4">
+            <p className="text-xs text-teal-400 font-medium mb-1">Rationale</p>
+            <p className="text-sm text-slate-300">{result.rationale}</p>
           </div>
 
           <div>
@@ -224,13 +224,13 @@ export default function FairSplitPage() {
               {result.items.map((item, i) => (
                 <div
                   key={i}
-                  className="bg-gray-900 border border-gray-800 rounded-xl px-4 py-3"
+                  className="bg-slate-900 border border-slate-800 rounded-xl px-4 py-3"
                 >
                   <div className="flex items-start justify-between gap-3 mb-1">
-                    <span className="text-sm text-gray-200">{item.description}</span>
+                    <span className="text-sm text-slate-200">{item.description}</span>
                     <div className="shrink-0 flex items-center gap-2">
                       {item.classification === "damage" && (
-                        <span className="text-sm font-bold text-orange-400">
+                        <span className="text-sm font-bold text-orange-400 tabular-nums">
                           €{item.amount.toFixed(2)}
                         </span>
                       )}
@@ -245,13 +245,13 @@ export default function FairSplitPage() {
                       </span>
                     </div>
                   </div>
-                  <p className="text-xs text-gray-500">{item.reasoning}</p>
+                  <p className="text-xs text-slate-500">{item.reasoning}</p>
                 </div>
               ))}
             </div>
           </div>
 
-          <p className="text-xs text-gray-600 text-center pt-2">
+          <p className="text-xs text-slate-600 text-center pt-2">
             Suggestion only — this does not affect your on-chain escrow or deposit.
           </p>
         </div>

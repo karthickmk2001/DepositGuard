@@ -159,7 +159,7 @@ export default function InspectPage() {
     return (
       <div className="max-w-lg mx-auto px-4 py-16 text-center">
         <h1 className="text-2xl font-bold mb-4">Inspector: Connect your wallet</h1>
-        <WalletMultiButton style={{ background: "rgb(109 40 217)", borderRadius: "12px" }} />
+        <WalletMultiButton style={{ background: "rgb(15 118 110)", borderRadius: "12px" }} />
       </div>
     );
   }
@@ -167,7 +167,7 @@ export default function InspectPage() {
   if (!mounted || loading) {
     return (
       <div className="flex justify-center py-24">
-        <span className="w-6 h-6 border-2 border-gray-600 border-t-violet-500 rounded-full animate-spin" />
+        <span className="w-6 h-6 border-2 border-slate-600 border-t-teal-500 rounded-full animate-spin" />
       </div>
     );
   }
@@ -188,7 +188,7 @@ export default function InspectPage() {
     <div className="max-w-lg mx-auto px-4 py-8">
       {/* Header */}
       <div className="mb-6">
-        <div className="text-sm text-violet-400 font-medium mb-1">Property Inspection Tool</div>
+        <div className="text-sm text-teal-400 font-medium mb-1">Property Inspection Tool</div>
         <h1 className="text-2xl font-bold">{tenancy.property_address}</h1>
 
         {/* GPS status */}
@@ -218,10 +218,10 @@ export default function InspectPage() {
             onClick={() => setCurrentRoom(i)}
             className={`text-xs px-3 py-1.5 rounded-full border transition-colors ${
               currentRoom === i
-                ? "border-violet-500 bg-violet-500/20 text-violet-300"
+                ? "border-teal-500 bg-teal-500/20 text-teal-300"
                 : rooms[i].photos.length > 0
                 ? "border-green-700 bg-green-900/20 text-green-400"
-                : "border-gray-700 text-gray-400 hover:border-gray-500"
+                : "border-slate-700 text-slate-400 hover:border-slate-500"
             }`}
           >
             {name} {rooms[i].photos.length > 0 && `(${rooms[i].photos.length})`}
@@ -230,12 +230,12 @@ export default function InspectPage() {
       </div>
 
       {/* Current room form */}
-      <div className="bg-gray-900 border border-gray-800 rounded-xl p-5 mb-5 space-y-4">
+      <div className="bg-slate-900 border border-slate-800 rounded-xl p-5 mb-5 space-y-4">
         <h2 className="font-semibold">{ROOMS[currentRoom]}</h2>
 
         {/* Photo upload */}
         <div>
-          <label className="block border-2 border-dashed border-gray-700 hover:border-violet-500 rounded-xl p-5 text-center cursor-pointer transition-colors">
+          <label className="block border-2 border-dashed border-slate-700 hover:border-teal-500 rounded-xl p-5 text-center cursor-pointer transition-colors">
             <input
               type="file"
               multiple
@@ -245,7 +245,7 @@ export default function InspectPage() {
               className="hidden"
             />
             <div className="text-2xl mb-1">📷</div>
-            <div className="text-sm text-gray-400">
+            <div className="text-sm text-slate-400">
               {room.photos.length === 0
                 ? "Take or upload photos"
                 : `${room.photos.length} photo(s) — tap to add more`}
@@ -255,10 +255,10 @@ export default function InspectPage() {
           {room.hashes.length > 0 && (
             <div className="mt-2 space-y-1">
               {room.hashes.map((h, i) => (
-                <div key={i} className="flex items-center gap-2 text-xs text-gray-500">
+                <div key={i} className="flex items-center gap-2 text-xs text-slate-500">
                   <span className="text-green-400">✓</span>
                   <span className="font-mono">{h.slice(0, 16)}…</span>
-                  <span className="text-gray-600">{room.photos[i]?.name}</span>
+                  <span className="text-slate-600">{room.photos[i]?.name}</span>
                 </div>
               ))}
             </div>
@@ -267,7 +267,7 @@ export default function InspectPage() {
 
         {/* Condition notes */}
         <div>
-          <label className="block text-sm font-medium text-gray-300 mb-1.5">
+          <label className="block text-sm font-medium text-slate-300 mb-1.5">
             Condition notes
           </label>
           <textarea
@@ -275,13 +275,13 @@ export default function InspectPage() {
             onChange={(e) => updateRoom(currentRoom, "condition", e.target.value)}
             placeholder="e.g. Good condition, minor scuff on wall near door"
             rows={3}
-            className="w-full bg-gray-950 border border-gray-700 rounded-xl px-4 py-3 text-gray-100 placeholder-gray-600 focus:outline-none focus:border-violet-500 transition-colors text-sm resize-none"
+            className="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-slate-100 placeholder-slate-600 focus:outline-none focus:border-teal-500 transition-colors text-sm resize-none"
           />
         </div>
 
         {/* Pre-existing damage */}
         <div>
-          <label className="block text-sm font-medium text-gray-300 mb-1.5">
+          <label className="block text-sm font-medium text-slate-300 mb-1.5">
             Pre-existing damage (if any)
           </label>
           <textarea
@@ -289,7 +289,7 @@ export default function InspectPage() {
             onChange={(e) => updateRoom(currentRoom, "preExistingDamage", e.target.value)}
             placeholder="e.g. Small crack in ceiling tile (existing, not new)"
             rows={2}
-            className="w-full bg-gray-950 border border-gray-700 rounded-xl px-4 py-3 text-gray-100 placeholder-gray-600 focus:outline-none focus:border-violet-500 transition-colors text-sm resize-none"
+            className="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-slate-100 placeholder-slate-600 focus:outline-none focus:border-teal-500 transition-colors text-sm resize-none"
           />
         </div>
 
@@ -298,7 +298,7 @@ export default function InspectPage() {
           {currentRoom > 0 && (
             <button
               onClick={() => setCurrentRoom((r) => r - 1)}
-              className="flex-1 border border-gray-700 hover:border-gray-500 text-gray-300 font-medium py-2.5 rounded-xl transition-colors text-sm"
+              className="flex-1 border border-slate-700 hover:border-slate-500 text-slate-300 font-medium py-2.5 rounded-xl transition-colors text-sm"
             >
               ← Previous
             </button>
@@ -306,7 +306,7 @@ export default function InspectPage() {
           {currentRoom < ROOMS.length - 1 ? (
             <button
               onClick={() => setCurrentRoom((r) => r + 1)}
-              className="flex-1 bg-violet-600 hover:bg-violet-500 text-white font-medium py-2.5 rounded-xl transition-colors text-sm"
+              className="flex-1 bg-teal-600 hover:bg-teal-500 text-white font-medium py-2.5 rounded-xl transition-colors text-sm"
             >
               Next Room →
             </button>
@@ -318,9 +318,9 @@ export default function InspectPage() {
       {currentRoom === ROOMS.length - 1 && (
         <div className="space-y-4">
           {/* Overall rating */}
-          <div className="bg-gray-900 border border-gray-800 rounded-xl p-5">
-            <label className="block text-sm font-medium text-gray-300 mb-3">
-              Overall property condition: <span className="text-violet-400">{overallRating}/5</span>
+          <div className="bg-slate-900 border border-slate-800 rounded-xl p-5">
+            <label className="block text-sm font-medium text-slate-300 mb-3">
+              Overall property condition: <span className="text-teal-400">{overallRating}/5</span>
             </label>
             <input
               type="range"
@@ -328,24 +328,24 @@ export default function InspectPage() {
               max={5}
               value={overallRating}
               onChange={(e) => setOverallRating(parseInt(e.target.value))}
-              className="w-full accent-violet-500"
+              className="w-full accent-teal-500"
             />
-            <div className="flex justify-between text-xs text-gray-500 mt-1">
+            <div className="flex justify-between text-xs text-slate-500 mt-1">
               <span>Poor</span>
               <span>Excellent</span>
             </div>
           </div>
 
           {/* Progress summary */}
-          <div className="bg-gray-900 border border-gray-800 rounded-xl p-5">
-            <div className="text-sm font-medium text-gray-300 mb-3">Inspection summary</div>
+          <div className="bg-slate-900 border border-slate-800 rounded-xl p-5">
+            <div className="text-sm font-medium text-slate-300 mb-3">Inspection summary</div>
             <div className="grid grid-cols-2 gap-2 text-xs">
-              <div className="text-gray-400">Total photos</div>
-              <div className="text-gray-100 font-medium">{totalPhotos}</div>
-              <div className="text-gray-400">GPS location</div>
+              <div className="text-slate-400">Total photos</div>
+              <div className="text-slate-100 font-medium">{totalPhotos}</div>
+              <div className="text-slate-400">GPS location</div>
               <div className={gps ? "text-green-400" : "text-yellow-500"}>{gps ? "Captured" : "Not available"}</div>
-              <div className="text-gray-400">Rooms covered</div>
-              <div className="text-gray-100 font-medium">
+              <div className="text-slate-400">Rooms covered</div>
+              <div className="text-slate-100 font-medium">
                 {rooms.filter((r) => r.photos.length > 0).length} / {ROOMS.length}
               </div>
             </div>
@@ -357,14 +357,14 @@ export default function InspectPage() {
             </div>
           )}
 
-          <div className="bg-violet-900/20 border border-violet-500/30 rounded-xl px-4 py-3 text-sm text-violet-300">
+          <div className="bg-teal-900/20 border border-teal-500/30 rounded-xl px-4 py-3 text-sm text-teal-300">
             By submitting, you certify that you physically visited the property and this report accurately reflects its condition.
           </div>
 
           <button
             onClick={handleSubmit}
             disabled={submitting || totalPhotos === 0}
-            className="w-full bg-violet-600 hover:bg-violet-500 disabled:bg-gray-800 disabled:text-gray-500 text-white font-semibold py-4 rounded-xl transition-colors flex items-center justify-center gap-3"
+            className="w-full bg-teal-600 hover:bg-teal-500 disabled:bg-slate-800 disabled:text-slate-500 text-white font-semibold py-4 rounded-xl transition-colors flex items-center justify-center gap-3"
           >
             {submitting ? (
               <>
