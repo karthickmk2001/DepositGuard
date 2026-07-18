@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
@@ -6,8 +7,16 @@ export default function Home() {
 
       {/* Hero */}
       <section className="relative py-24 px-4 overflow-hidden">
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div className="w-[500px] h-[500px] rounded-full bg-violet-600/8 blur-3xl" />
+        <div className="absolute inset-0">
+          <Image
+            src="/hero-terrace.jpg"
+            alt=""
+            fill
+            priority
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-gray-950 via-gray-950/85 to-gray-950/55" />
+          <div className="absolute inset-0 bg-gray-950/40" />
         </div>
 
         <div className="relative max-w-3xl mx-auto text-center">
