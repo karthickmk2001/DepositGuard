@@ -5,6 +5,7 @@ import { useState } from "react";
 interface AssessmentItem {
   description: string;
   classification: "wear-and-tear" | "damage";
+  amount: number;
   reasoning: string;
 }
 
@@ -26,7 +27,7 @@ const EXAMPLE = {
   ],
 };
 
-export default function AiAssessmentPage() {
+export default function FairSplitPage() {
   const [depositAmount, setDepositAmount] = useState("");
   const [moveInNotes, setMoveInNotes] = useState("");
   const [findings, setFindings] = useState<string[]>([""]);
@@ -96,14 +97,12 @@ export default function AiAssessmentPage() {
   return (
     <div className="max-w-3xl mx-auto px-4 py-12">
       <div className="mb-8">
-        <div className="text-sm text-violet-400 font-medium mb-1">AI Damage Assessment (Demo)</div>
+        <div className="text-sm text-violet-400 font-medium mb-1">Fair Split Assistant</div>
         <h1 className="text-3xl font-bold mb-2">Move-out dispute assistant</h1>
         <p className="text-gray-400 text-sm">
           Describe the move-in condition and what changed at move-out. The AI
           classifies each finding as normal wear-and-tear or chargeable damage,
-          and suggests a fair deposit split with a written rationale — a
-          preview of the judgement-assisting agent step in the automated
-          dispute-resolution process.
+          and suggests a fair deposit split with a written rationale.
         </p>
       </div>
 
@@ -193,7 +192,7 @@ export default function AiAssessmentPage() {
           {loading && (
             <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
           )}
-          {loading ? "Assessing..." : "Get AI-suggested split"}
+          {loading ? "Suggesting..." : "Suggest Fair Split"}
         </button>
       </div>
 
@@ -220,7 +219,7 @@ export default function AiAssessmentPage() {
           </div>
 
           <div>
-            <h2 className="font-semibold mb-3">Itemised classification</h2>
+            <h2 className="font-semibold mb-3">Itemised breakdown</h2>
             <div className="space-y-2">
               {result.items.map((item, i) => (
                 <div
@@ -229,15 +228,22 @@ export default function AiAssessmentPage() {
                 >
                   <div className="flex items-start justify-between gap-3 mb-1">
                     <span className="text-sm text-gray-200">{item.description}</span>
-                    <span
-                      className={`shrink-0 text-xs font-semibold px-2 py-0.5 rounded-full ${
-                        item.classification === "damage"
-                          ? "bg-red-900/40 text-red-400 border border-red-700/50"
-                          : "bg-green-900/40 text-green-400 border border-green-700/50"
-                      }`}
-                    >
-                      {item.classification === "damage" ? "Damage" : "Wear-and-tear"}
-                    </span>
+                    <div className="shrink-0 flex items-center gap-2">
+                      {item.classification === "damage" && (
+                        <span className="text-sm font-bold text-orange-400">
+                          €{item.amount.toFixed(2)}
+                        </span>
+                      )}
+                      <span
+                        className={`text-xs font-semibold px-2 py-0.5 rounded-full ${
+                          item.classification === "damage"
+                            ? "bg-red-900/40 text-red-400 border border-red-700/50"
+                            : "bg-green-900/40 text-green-400 border border-green-700/50"
+                        }`}
+                      >
+                        {item.classification === "damage" ? "Damage" : "Wear-and-tear"}
+                      </span>
+                    </div>
                   </div>
                   <p className="text-xs text-gray-500">{item.reasoning}</p>
                 </div>
@@ -246,9 +252,7 @@ export default function AiAssessmentPage() {
           </div>
 
           <p className="text-xs text-gray-600 text-center pt-2">
-            This is a demo of the judgement-assisting AI step described in the
-            H9IAPA automation case study — it does not affect any on-chain
-            escrow or real tenancy.
+            Suggestion only — this does not affect your on-chain escrow or deposit.
           </p>
         </div>
       )}

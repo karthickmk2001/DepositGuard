@@ -26,7 +26,7 @@ export default function Navbar() {
           {[
             { href: "/create", label: "New Tenancy" },
             { href: "/dashboard", label: "Dashboard" },
-            { href: "/ai-assessment", label: "AI Assessment" },
+            { href: "/fair-split", label: "Fair Split Assistant" },
           ].map((l) => (
             <Link
               key={l.href}

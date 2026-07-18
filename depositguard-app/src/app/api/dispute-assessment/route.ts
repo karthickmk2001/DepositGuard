@@ -11,23 +11,29 @@ for one tenancy.
 For EACH move-out finding, classify it as one of: "wear-and-tear" (normal
 deterioration from ordinary use, not chargeable) or "damage" (chargeable, beyond
 normal wear). Give a one-sentence reasoning for each classification, referencing
-the move-in notes where relevant.
+the move-in notes where relevant. Then estimate a specific EUR "amount" to
+deduct for that individual item: a reasonable, realistic repair/replacement
+cost for "damage" items, or exactly 0 for "wear-and-tear" items. Base each
+amount on typical Irish repair/cleaning/replacement costs for that kind of
+item — vary the amounts realistically per item rather than splitting the
+deposit evenly.
 
-Then propose a fair split of the total deposit between landlord and tenant:
-the landlord's share should approximate the reasonable cost of remedying items
-you classified as "damage" only, never wear-and-tear. If no items are damage,
-the landlord's share should be 0 and the full deposit returned to the tenant.
+The landlord's total suggested amount must equal the sum of all individual
+item amounts, and must never exceed the total deposit — if item amounts would
+add up to more than the deposit, scale them down proportionally so they fit.
+The tenant's suggested amount is whatever remains of the deposit.
 
 Respond ONLY with a JSON object of this exact shape:
 {
   "items": [
-    {"description": "...", "classification": "wear-and-tear" | "damage", "reasoning": "..."}
+    {"description": "...", "classification": "wear-and-tear" | "damage", "amount": <number>, "reasoning": "..."}
   ],
   "suggestedLandlordAmount": <number>,
   "suggestedTenantAmount": <number>,
   "rationale": "<2-4 sentence overall explanation of the split>"
 }
-The two suggested amounts must sum exactly to the total deposit amount given.`;
+The two suggested amounts must sum exactly to the total deposit amount given,
+and suggestedLandlordAmount must equal the sum of each item's "amount".`;
 
 interface AssessmentRequest {
   depositAmount: number;
@@ -38,6 +44,7 @@ interface AssessmentRequest {
 interface AssessmentItem {
   description: string;
   classification: "wear-and-tear" | "damage";
+  amount: number;
   reasoning: string;
 }
 
