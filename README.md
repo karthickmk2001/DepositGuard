@@ -23,10 +23,19 @@ DepositGuard locks rent deposits in a **Program Derived Address (PDA)**. Neither
 
 | | Today | DepositGuard |
 |---|---|---|
-| Who holds the deposit | Landlord | PDA |
+| Who holds the deposit | Landlord | On-chain PDA |
 | Move-in evidence | Phone photos, easily faked | SHA-256 hash on-chain |
 | Dispute resolution | RTB: 6–12 months | Arbitration: days |
 | Works for international tenants | No | Yes — just a wallet |
+
+### Fair Split Assistant (`/fair-split`)
+
+A standalone AI tool: describe a property's move-in condition and what
+changed at move-out, and it returns a wear-and-tear-vs-damage
+classification per item plus a suggested deposit split with reasoning
+(OpenAI, called server-side via `/api/dispute-assessment` — the key is
+never exposed to the browser). Advisory only; doesn't touch the on-chain
+escrow.
 
 ---
 
@@ -51,6 +60,7 @@ same H9IAPA coursework, kept side by side — see each folder's own README.
 - **Wallets:** `@solana/wallet-adapter-react` (Phantom, Solflare, etc.)
 - **On-chain:** DepositGuard program (Rust), Anchor framework
 - **Off-chain storage:** Supabase (photo blobs, tenancy metadata)
+- **AI:** OpenAI API (Fair Split Assistant, server-side only)
 - **Hosting:** Vercel
 
 ## Local development
