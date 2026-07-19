@@ -2,6 +2,11 @@
 
 Two automation solutions built around the DepositGuard deposit escrow platform.
 
+> Note: `../h9iapa-ca/` contains a second, independent implementation of the
+> same coursework (text-based classifier instead of photo-vision, plus a
+> full drafted report.docx). Both are kept for now — see its README for
+> details if you're deciding which to submit.
+
 ## 1. RPA onboarding bot (rpa-onboarding-bot/)
 Rule-based bot that automates tenancy intake administration:
 - reads new tenancies from new_tenancies.xlsx

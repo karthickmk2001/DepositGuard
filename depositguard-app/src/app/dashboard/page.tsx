@@ -46,7 +46,7 @@ function getActionForStatus(tenancy: Tenancy, walletAddr: string) {
 }
 
 function DashboardContent() {
-  const { publicKey, connected } = useWallet();
+  const { publicKey } = useWallet();
   const searchParams = useSearchParams();
   const createdId = searchParams.get("created");
 
@@ -56,7 +56,6 @@ function DashboardContent() {
 
   useEffect(() => {
     if (!publicKey) return;
-    setLoading(true);
     getTenanciesForWallet(publicKey.toBase58())
       .then(setTenancies)
       .catch((e) => setError(e.message))

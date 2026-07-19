@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { useWallet } from "@solana/wallet-adapter-react";
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
+import { useMounted } from "@/lib/useMounted";
 
 interface Props {
   children: React.ReactNode;
@@ -16,9 +16,7 @@ interface Props {
  */
 export default function WalletGuard({ children, message, sub }: Props) {
   const { connected } = useWallet();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => setMounted(true), []);
+  const mounted = useMounted();
 
   if (!mounted) return null;
 

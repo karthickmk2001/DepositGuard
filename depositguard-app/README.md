@@ -1,36 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# DepositGuard — frontend
 
-## Getting Started
+Next.js 16 (App Router) frontend for DepositGuard. See the [repo root README](../README.md) for the full project overview (problem, solution, tech stack).
 
-First, run the development server:
+## Local development
 
 ```bash
+npm install
+cp .env.local.example .env.local   # fill in real Supabase + OpenAI values
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) and connect a Phantom wallet on Devnet.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Key routes
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Route | Purpose |
+|---|---|
+| `/` | Marketing homepage |
+| `/create` | Landlord creates a tenancy escrow |
+| `/dashboard` | Wallet-scoped list of tenancies, table-style status view |
+| `/deposit/[id]` | Tenant pays deposit into escrow |
+| `/resolve/[id]` | Move-out: propose/agree deposit split |
+| `/arbitrate/[id]` | Arbitrator reviews a disputed split |
+| `/inspect/[id]` | Independent inspector signs the move-in report |
+| `/fair-split` | Standalone AI demo — suggests a wear-and-tear-vs-damage deposit split from text descriptions (OpenAI, server-side via `/api/dispute-assessment`) |
 
-## Learn More
+## Checks
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npx tsc --noEmit -p .   # typecheck
+npx eslint .            # lint
+npx next build          # production build
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+All three currently pass clean.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deploy
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Linked to Vercel (`.vercel/project.json`). `npx vercel --prod` deploys to the production alias. Required env vars must also be set in the Vercel project (`npx vercel env add <NAME> production`), separately from local `.env.local`.

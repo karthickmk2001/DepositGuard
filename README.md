@@ -36,8 +36,14 @@ DepositGuard locks rent deposits in a **Program Derived Address (PDA)**. Neither
 .
 ├── depositguard-app/        # Next.js 16 frontend (deployed on Vercel)
 ├── depositguard-program/    # DepositGuard program (Anchor / Rust)
+├── automation/               # H9IAPA CA: RPA onboarding bot + AI dispute agent (photo-vision)
+├── bpmn/                     # H9IAPA CA: As-Is / To-Be diagrams (draw.io) for automation/
+├── h9iapa-ca/                # H9IAPA CA: alternate solution set (text-based agent, full report)
 └── DepositGuard PRD - AI-ML Addendum.md
 ```
+
+`automation/`+`bpmn/` and `h9iapa-ca/` are two independent implementations of the
+same H9IAPA coursework, kept side by side — see each folder's own README.
 
 ## Tech stack
 
@@ -65,7 +71,8 @@ Then open `http://localhost:3000` and connect a Phantom wallet on Devnet.
 | `NEXT_PUBLIC_SUPABASE_URL` | Client + server |
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Client (with RLS) |
 | `SUPABASE_SERVICE_ROLE_KEY` | Server-only API routes |
+| `OPENAI_API_KEY` | Server-only, powers `/fair-split` |
 
 ## Status
 
-Currently runs on — not production-ready for real deposits.
+Runs on Solana Devnet — not production-ready for real deposits.

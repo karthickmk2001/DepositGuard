@@ -13,7 +13,7 @@ const ROOMS = ["Kitchen", "Bathroom", "Bedroom 1", "Bedroom 2", "Living Room", "
 type Step = "details" | "photos" | "inspector" | "confirm";
 
 export default function CreatePage() {
-  const { publicKey, connected } = useWallet();
+  const { publicKey } = useWallet();
   const router = useRouter();
 
   const [step, setStep] = useState<Step>("details");
