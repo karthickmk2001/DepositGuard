@@ -47,8 +47,7 @@ escrow.
 ├── depositguard-program/    # DepositGuard program (Anchor / Rust)
 ├── automation/               # H9IAPA CA: RPA onboarding bot + AI dispute agent (photo-vision)
 ├── bpmn/                     # H9IAPA CA: As-Is / To-Be diagrams (draw.io) for automation/
-├── h9iapa-ca/                # H9IAPA CA: alternate solution set (text-based agent, full report)
-└── DepositGuard PRD - AI-ML Addendum.md
+└── h9iapa-ca/                # H9IAPA CA: alternate solution set (text-based agent, full report)
 ```
 
 `automation/`+`bpmn/` and `h9iapa-ca/` are two independent implementations of the
