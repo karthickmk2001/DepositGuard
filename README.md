@@ -62,25 +62,80 @@ same H9IAPA coursework, kept side by side — see each folder's own README.
 - **AI:** OpenAI API (Fair Split Assistant, server-side only)
 - **Hosting:** Vercel
 
-## Local development
+## How to run this project
+
+### Prerequisites
+
+- **Node.js 20+** and npm
+- A **Solana wallet browser extension** — [Phantom](https://phantom.app), set to **Devnet** — to connect on the site
+- A **Supabase** project ([supabase.com](https://supabase.com), free tier is fine) — off-chain storage for photos/tenancy metadata
+- An **OpenAI API key** ([platform.openai.com](https://platform.openai.com)) — only needed if you want the Fair Split Assistant (`/fair-split`) to work; the rest of the site runs fine without it
+
+### 1. Clone and install
 
 ```bash
-cd depositguard-app
+git clone https://github.com/karthickmk2001/DepositGuard.git
+cd DepositGuard/depositguard-app
 npm install
-cp .env.local.example .env.local   # fill in Supabase keys
+```
+
+### 2. Configure environment variables
+
+```bash
+cp .env.local.example .env.local
+```
+
+Then fill in `.env.local` with real values:
+
+| Var | Where it's used | Where to get it |
+|---|---|---|
+| `NEXT_PUBLIC_SUPABASE_URL` | Client + server | Supabase Project Settings → API |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Client (with RLS) | Supabase Project Settings → API |
+| `SUPABASE_SERVICE_ROLE_KEY` | Server-only API routes | Supabase Project Settings → API |
+| `OPENAI_API_KEY` | Server-only, powers `/fair-split` | platform.openai.com |
+
+### 3. Run the dev server
+
+```bash
 npm run dev
 ```
 
-Then open `http://localhost:3000` and connect a Phantom wallet on Devnet.
+Open [http://localhost:3000](http://localhost:3000). Connect Phantom, switch it to **Devnet**, and get free Devnet SOL from the [Solana faucet](https://faucet.solana.com) if your wallet is empty.
 
-## Required environment variables
+### 4. Try the flow
 
-| Var | Where it's used |
-|---|---|
-| `NEXT_PUBLIC_SUPABASE_URL` | Client + server |
-| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Client (with RLS) |
-| `SUPABASE_SERVICE_ROLE_KEY` | Server-only API routes |
-| `OPENAI_API_KEY` | Server-only, powers `/fair-split` |
+- **As a landlord:** `/create` → set a deposit amount → upload move-in photos → get a shareable link.
+- **As a tenant:** open the link at `/deposit/[id]` → pay the deposit into escrow.
+- **At move-out:** `/resolve/[id]` → landlord proposes a split → tenant agrees (releases instantly) or disputes (goes to `/arbitrate/[id]`).
+- **Try the AI tool standalone:** `/fair-split` — no wallet needed, just describe a move-in/move-out scenario.
+
+### 5. Before committing changes
+
+```bash
+npx tsc --noEmit -p .   # typecheck
+npx eslint .            # lint
+npx next build          # production build
+```
+
+### 6. Deploy
+
+The project is linked to Vercel (`depositguard-app/.vercel/project.json`).
+
+```bash
+npx vercel --prod
+```
+
+Environment variables must also be set on Vercel (separately from local `.env.local`):
+
+```bash
+npx vercel env add OPENAI_API_KEY production
+```
+
+### Running the H9IAPA CA automation solutions
+
+Two independent coursework solutions live alongside the site — see
+`automation/README.md` and `h9iapa-ca/README.md` for their own run
+instructions (both are plain Python, not part of the Next.js app).
 
 ## Status
 
