@@ -56,7 +56,7 @@ same H9IAPA coursework, kept side by side — see each folder's own README.
 ## Tech stack
 
 - **Frontend:** Next.js 16, React 19, Tailwind v4, TypeScript
-- **Wallets:** `@solana/wallet-adapter-react` (Phantom, Solflare, etc.)
+- **Wallets:** `@wallet-adapter-react` (Phantom, Solflare, etc.)
 - **On-chain:** DepositGuard program (Rust), Anchor framework
 - **Off-chain storage:** Supabase (photo blobs, tenancy metadata)
 - **AI:** OpenAI API (Fair Split Assistant, server-side only)
@@ -67,7 +67,7 @@ same H9IAPA coursework, kept side by side — see each folder's own README.
 ### Prerequisites
 
 - **Node.js 20+** and npm
-- A **Solana wallet browser extension** — [Phantom](https://phantom.app), set to **Devnet** — to connect on the site
+- A **Wallet browser extension** — [Phantom](https://phantom.app), set to **Devnet** — to connect on the site
 - A **Supabase** project ([supabase.com](https://supabase.com), free tier is fine) — off-chain storage for photos/tenancy metadata
 - An **OpenAI API key** ([platform.openai.com](https://platform.openai.com)) — only needed if you want the Fair Split Assistant (`/fair-split`) to work; the rest of the site runs fine without it
 
@@ -139,4 +139,4 @@ instructions (both are plain Python, not part of the Next.js app).
 
 ## Status
 
-Runs on Solana Devnet — not production-ready for real deposits.
+Runs on Devnet — Not production - Ready for real deposits.
