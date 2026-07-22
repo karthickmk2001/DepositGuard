@@ -40,10 +40,6 @@ be overwritten with a fresh live result. Cite this in the report so it is
 clear the implementation was actually exercised against the real API, per the
 CA brief's requirement to demonstrate solutions using external APIs.
 
-## BPMN (../bpmn/)
-- as_is_deposit_process.drawio - manual Irish deposit process with RTB dispute path
-- to_be_depositguard_process.drawio - automated process; purple tasks are the two solutions
-
 ## AI usage disclosure
 Parts of this project were developed with AI assistance (Anthropic Claude), as
 disclosed in the report per the CA brief. All results shown were genuinely

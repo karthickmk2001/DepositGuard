@@ -46,11 +46,10 @@ escrow.
 ├── depositguard-app/        # Next.js 16 frontend (deployed on Vercel)
 ├── depositguard-program/    # DepositGuard program (Anchor / Rust)
 ├── automation/               # H9IAPA CA: RPA onboarding bot + AI dispute agent (photo-vision)
-├── bpmn/                     # H9IAPA CA: As-Is / To-Be diagrams (draw.io) for automation/
 └── h9iapa-ca/                # H9IAPA CA: alternate solution set (text-based agent, full report)
 ```
 
-`automation/`+`bpmn/` and `h9iapa-ca/` are two independent implementations of the
+`automation/` and `h9iapa-ca/` are two independent implementations of the
 same H9IAPA coursework, kept side by side — see each folder's own README.
 
 ## Tech stack
