@@ -8,32 +8,32 @@ Live demo: **[depositguard-app.vercel.app](https://depositguard-app.vercel.app)*
 
 ## The problem
 
-Ireland has **no deposit protection scheme**. Landlords hold an estimated €500M+ of tenant money each year with no neutral custodian. When disputes happen, the RTB takes **6–12 months** to resolve them.
+Ireland has **no deposit protection scheme**. Landlords hold an estimated €500M+ of tenant money each year with no neutral custodian. When disputes happen, the RTB takes **6 - 12 months** to resolve them.
 
-International tenants get hit hardest — many have already left the country before any decision is made.
+International tenants get hit hardest - many have already left the country before any decision is made.
 
 ## The solution
 
 DepositGuard locks rent deposits in a **Program Derived Address (PDA)**. Neither side can withdraw unilaterally:
 
-1. **Landlord creates the escrow** — sets the deposit amount, uploads move-in photos. A SHA-256 hash of every photo is stored on-chain.
-2. **Inspector signs the condition report** — an independent inspector signs the baseline on-chain.
-3. **Tenant pays into the PDA** — funds go to a program-controlled address, not the landlord's wallet.
-4. **Move-out** — both parties sign off on the split (escrow releases in seconds), or an arbitrator decides based on the on-chain evidence.
+1. **Landlord creates the escrow** - Sets the deposit amount, uploads move-in photos. A SHA-256 hash of every photo is stored on-chain.
+2. **Inspector signs the condition report** - An independent inspector signs the baseline on-chain.
+3. **Tenant pays into the PDA** — Funds go to a program-controlled address, not the landlord's wallet.
+4. **Move-out** - Both parties sign off on the split (escrow releases in seconds), or an arbitrator decides based on the on-chain evidence.
 
 | | Today | DepositGuard |
 |---|---|---|
 | Who holds the deposit | Landlord | On-chain PDA |
 | Move-in evidence | Phone photos, easily faked | SHA-256 hash on-chain |
-| Dispute resolution | RTB: 6–12 months | Arbitration: days |
-| Works for international tenants | No | Yes — just a wallet |
+| Dispute resolution | RTB: 6 - 12 months | Arbitration: days |
+| Works for international tenants | No | Yes - just a wallet |
 
 ### Fair Split Assistant (`/fair-split`)
 
 A standalone AI tool: describe a property's move-in condition and what
 changed at move-out, and it returns a wear-and-tear-vs-damage
 classification per item plus a suggested deposit split with reasoning
-(OpenAI, called server-side via `/api/dispute-assessment` — the key is
+(OpenAI, called server-side via `/api/dispute-assessment` - the key is
 never exposed to the browser). Advisory only; doesn't touch the on-chain
 escrow.
 
@@ -45,7 +45,7 @@ escrow.
 .
 ├── depositguard-app/        # Next.js 16 frontend (deployed on Vercel)
 ├── depositguard-program/    # DepositGuard program (Anchor / Rust)
-├── automation/               # H9IAPA CA: RPA onboarding bot + AI dispute agent (photo-vision)
+├── automation/               # H9IAPA CA: RPA onboarding bot + AI dispute agent (photo - vision)
 └── h9iapa-ca/                # H9IAPA CA: alternate solution set (text-based agent, full report)
 ```
 
@@ -66,9 +66,9 @@ same H9IAPA coursework, kept side by side — see each folder's own README.
 ### Prerequisites
 
 - **Node.js 20+** and npm
-- A **Wallet browser extension** — [Phantom](https://phantom.app), set to **Devnet** — to connect on the site
-- A **Supabase** project ([supabase.com](https://supabase.com), free tier is fine) — off-chain storage for photos/tenancy metadata
-- An **OpenAI API key** ([platform.openai.com](https://platform.openai.com)) — only needed if you want the Fair Split Assistant (`/fair-split`) to work; the rest of the site runs fine without it
+- A **Wallet browser extension** — [Phantom](https://phantom.app), set to **Devnet** - to connect on the site
+- A **Supabase** project ([supabase.com](https://supabase.com), free tier is fine) - off-chain storage for photos/tenancy metadata
+- An **OpenAI API key** ([platform.openai.com](https://platform.openai.com)) - only needed if you want the Fair Split Assistant (`/fair-split`) to work; the rest of the site runs fine without it
 
 ### 1. Clone and install
 
@@ -106,7 +106,7 @@ Open [http://localhost:3000](http://localhost:3000). Connect Phantom, switch it 
 - **As a landlord:** `/create` → set a deposit amount → upload move-in photos → get a shareable link.
 - **As a tenant:** open the link at `/deposit/[id]` → pay the deposit into escrow.
 - **At move-out:** `/resolve/[id]` → landlord proposes a split → tenant agrees (releases instantly) or disputes (goes to `/arbitrate/[id]`).
-- **Try the AI tool standalone:** `/fair-split` — no wallet needed, just describe a move-in/move-out scenario.
+- **Try the AI tool standalone:** `/fair-split` - No wallet needed, just describe a move-in/move-out scenario.
 
 ### 5. Before committing changes
 
@@ -138,4 +138,4 @@ instructions (both are plain Python, not part of the Next.js app).
 
 ## Status
 
-Runs on Devnet — Not production - Ready for real deposits.
+Runs on Devnet - Not production - Ready for real deposits.
