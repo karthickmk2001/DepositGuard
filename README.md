@@ -66,7 +66,7 @@ same H9IAPA coursework, kept side by side - see each folder's own README.
 ### Prerequisites
 
 - **Node.js 20+** and npm
-- A **Wallet browser extension** — [Phantom](https://phantom.app), set to **Devnet** - to connect on the site
+- A **Wallet browser extension** - [Phantom](https://phantom.app), set to **Devnet** - to connect on the site
 - A **Supabase** project ([supabase.com](https://supabase.com), free tier is fine) - off-chain storage for photos/tenancy metadata
 - An **OpenAI API key** ([platform.openai.com](https://platform.openai.com)) - only needed if you want the Fair Split Assistant (`/fair-split`) to work; the rest of the site runs fine without it
 
@@ -132,7 +132,7 @@ npx vercel env add OPENAI_API_KEY production
 
 ### Running the H9IAPA CA automation solutions
 
-Two independent coursework solutions live alongside the site — see
+Two independent coursework solutions live alongside the site - see
 `automation/README.md` and `h9iapa-ca/README.md` for their own run
 instructions (both are plain Python, not part of the Next.js app).
 
