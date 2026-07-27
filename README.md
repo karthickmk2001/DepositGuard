@@ -18,7 +18,7 @@ DepositGuard locks rent deposits in a **Program Derived Address (PDA)**. Neither
 
 1. **Landlord creates the escrow** - Sets the deposit amount, uploads move-in photos. A SHA-256 hash of every photo is stored on-chain.
 2. **Inspector signs the condition report** - An independent inspector signs the baseline on-chain.
-3. **Tenant pays into the PDA** — Funds go to a program-controlled address, not the landlord's wallet.
+3. **Tenant pays into the PDA** - Funds go to a program-controlled address, not the landlord's wallet.
 4. **Move-out** - Both parties sign off on the split (escrow releases in seconds), or an arbitrator decides based on the on-chain evidence.
 
 | | Today | DepositGuard |
@@ -50,7 +50,7 @@ escrow.
 ```
 
 `automation/` and `h9iapa-ca/` are two independent implementations of the
-same H9IAPA coursework, kept side by side — see each folder's own README.
+same H9IAPA coursework, kept side by side - see each folder's own README.
 
 ## Tech stack
 
