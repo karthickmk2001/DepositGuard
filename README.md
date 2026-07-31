@@ -91,7 +91,7 @@ Then fill in `.env.local` with real values:
 | `NEXT_PUBLIC_SUPABASE_URL` | Client + server | Supabase Project Settings → API |
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Client (with RLS) | Supabase Project Settings → API |
 | `SUPABASE_SERVICE_ROLE_KEY` | Server-only API routes | Supabase Project Settings → API |
-| `GOOGLE_GENERATIVE_AI_API_KEY` | Server-only, powers `/fair-split` | platform.openai.com |
+| `GOOGLE_GENERATIVE_AI_API_KEY` | Server-only, powers `/fair-split` | aistudio.google.com/apikey |
 
 ### 3. Run the dev server
 
@@ -127,7 +127,7 @@ npx vercel --prod
 Environment variables must also be set on Vercel (separately from local `.env.local`):
 
 ```bash
-npx vercel env add OPENAI_API_KEY production
+npx vercel env add GOOGLE_GENERATIVE_AI_API_KEY production
 ```
 
 ### Running the H9IAPA CA automation solutions
