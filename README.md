@@ -33,7 +33,7 @@ DepositGuard locks rent deposits in a **Program Derived Address (PDA)**. Neither
 A standalone AI tool: describe a property's move-in condition and what
 changed at move-out, and it returns a wear-and-tear-vs-damage
 classification per item plus a suggested deposit split with reasoning
-(OpenAI, called server-side via `/api/dispute-assessment` - the key is
+(GEMINI, called server-side via `/api/dispute-assessment` - the key is
 never exposed to the browser). Advisory only; doesn't touch the on-chain
 escrow.
 
@@ -58,7 +58,7 @@ same H9IAPA coursework, kept side by side - see each folder's own README.
 - **Wallets:** `@wallet-adapter-react` (Phantom, Solflare, etc.)
 - **On-chain:** DepositGuard program (Rust), Anchor framework
 - **Off-chain storage:** Supabase (photo blobs, tenancy metadata)
-- **AI:** OpenAI API (Fair Split Assistant, server-side only)
+- **AI:** GEMINI API (Fair Split Assistant, server-side only)
 - **Hosting:** Vercel
 
 ## How to run this project
@@ -68,7 +68,7 @@ same H9IAPA coursework, kept side by side - see each folder's own README.
 - **Node.js 20+** and npm
 - A **Wallet browser extension** - [Phantom](https://phantom.app), set to **Devnet** - to connect on the site
 - A **Supabase** project ([supabase.com](https://supabase.com), free tier is fine) - off-chain storage for photos/tenancy metadata
-- An **OpenAI API key** ([platform.openai.com](https://platform.openai.com)) - only needed if you want the Fair Split Assistant (`/fair-split`) to work; the rest of the site runs fine without it
+- An **GEMINI API key** ([google.com](https://aistudio.google.com )) - only needed if you want the Fair Split Assistant (`/fair-split`) to work; the rest of the site runs fine without it
 
 ### 1. Clone and install
 
@@ -91,7 +91,7 @@ Then fill in `.env.local` with real values:
 | `NEXT_PUBLIC_SUPABASE_URL` | Client + server | Supabase Project Settings → API |
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Client (with RLS) | Supabase Project Settings → API |
 | `SUPABASE_SERVICE_ROLE_KEY` | Server-only API routes | Supabase Project Settings → API |
-| `OPENAI_API_KEY` | Server-only, powers `/fair-split` | platform.openai.com |
+| `GOOGLE_GENERATIVE_AI_API_KEY` | Server-only, powers `/fair-split` | platform.openai.com |
 
 ### 3. Run the dev server
 
